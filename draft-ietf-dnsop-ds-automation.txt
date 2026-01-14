@@ -215,8 +215,8 @@ Table of Contents
        signing algorithm values designated as "RECOMMENDED" or "MUST" in
        the "Use for DNSSEC Validation" columns of the relevant IANA
        registries ([DS-IANA] and [DNSKEY-IANA]).  (In contrast, digest
-       type and algorithm checks need not necessarily be enforced for
-       when provisioning DS records manually.)
+       type and algorithm checks need not necessarily be enforced when
+       provisioning DS records manually.)
 
    Even without an update being requested, Parents MAY occasionally
    check whether the current DS contents would still be acceptable if
