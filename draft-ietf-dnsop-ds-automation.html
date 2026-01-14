@@ -1048,7 +1048,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Sheng &amp; Thomassen</td>
-<td class="center">Expires 13 July 2026</td>
+<td class="center">Expires 18 July 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1061,12 +1061,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dnsop-ds-automation-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-01-09" class="published">9 January 2026</time>
+<time datetime="2026-01-14" class="published">14 January 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Best Current Practice</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-07-13">13 July 2026</time></dd>
+<dd class="expires"><time datetime="2026-07-18">18 July 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1114,7 +1114,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 13 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1375,7 +1375,7 @@ and cancel the update if the verifications do not succeed.<a href="#section-2.1-
               <p id="section-2.2.1-3.1.1">verifying that consistent CDS/CDNSKEY responses are served by all of the delegation's nameservers <span>[<a href="#I-D.ietf-dnsop-cds-consistency" class="cite xref">I-D.ietf-dnsop-cds-consistency</a>]</span>;<a href="#section-2.2.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
             <li id="section-2.2.1-3.2">
-              <p id="section-2.2.1-3.2.1">verifying that the resulting DS RRset does not break the delegation if applied (<span>[<a href="#RFC7344" class="cite xref">RFC7344</a>], <a href="https://rfc-editor.org/rfc/rfc7344#section-4.1" class="relref">Section 4.1</a></span>), i.e., that it provides at least one valid path for validators to use (<span>[<a href="#RFC6840" class="cite xref">RFC6840</a>], <a href="https://rfc-editor.org/rfc/rfc6840#section-5.11" class="relref">Section 5.11</a></span>). This is the case if the child's DNSKEY RRset has a valid RRSIG signature from a key that is referenced by at least one DS record, with the digest type and signing algorithm values designated as "RECOMMENDED" or "MUST" in the "Use for DNSSEC Validation" columns of the relevant IANA registries (<span>[<a href="#DS-IANA" class="cite xref">DS-IANA</a>]</span> and <span>[<a href="#DNSKEY-IANA" class="cite xref">DNSKEY-IANA</a>]</span>).<a href="#section-2.2.1-3.2.1" class="pilcrow">¶</a></p>
+              <p id="section-2.2.1-3.2.1">verifying that the resulting DS RRset does not break the delegation if applied (<span>[<a href="#RFC7344" class="cite xref">RFC7344</a>], <a href="https://rfc-editor.org/rfc/rfc7344#section-4.1" class="relref">Section 4.1</a></span>), i.e., that it provides at least one valid path for validators to use (<span>[<a href="#RFC6840" class="cite xref">RFC6840</a>], <a href="https://rfc-editor.org/rfc/rfc6840#section-5.11" class="relref">Section 5.11</a></span>). This is the case if the child's DNSKEY RRset has a valid RRSIG signature from a key that is referenced by at least one DS record, with the digest type and signing algorithm values designated as "RECOMMENDED" or "MUST" in the "Use for DNSSEC Validation" columns of the relevant IANA registries (<span>[<a href="#DS-IANA" class="cite xref">DS-IANA</a>]</span> and <span>[<a href="#DNSKEY-IANA" class="cite xref">DNSKEY-IANA</a>]</span>). (In contrast, digest type and algorithm checks need not necessarily be enforced for when provisioning DS records manually.)<a href="#section-2.2.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
           </ol>
 <p id="section-2.2.1-4">Even without an update being requested, Parents MAY occasionally check whether the current DS contents would still be acceptable if they were newly submitted in CDS/CDNSKEY form (see <a href="#acceptance" class="auto internal xref">Section 2</a>).
@@ -2028,122 +2028,132 @@ and cancel the update if the verifications do not succeed.<a href="#appendix-B.1
       </h2>
 <ul class="normal">
 <li class="normal" id="appendix-C-1.1">
-          <p id="appendix-C-1.1.1">draft-ietf-dnsop-ds-automation-02<a href="#appendix-C-1.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-1.1.1">draft-ietf-dnsop-ds-automation-03<a href="#appendix-C-1.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-2.1">
-          <p id="appendix-C-2.1.1">Add Appendix with recommendations overview<a href="#appendix-C-2.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-2.1.1">Editorial changes<a href="#appendix-C-2.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-C-3.1">
-          <p id="appendix-C-3.1.1">Editorial changes<a href="#appendix-C-3.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-C-3.1">
+          <p id="appendix-C-3.1.1">draft-ietf-dnsop-ds-automation-02<a href="#appendix-C-3.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-4.1">
-          <p id="appendix-C-4.1.1">Change type to BCP<a href="#appendix-C-4.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-4.1.1">Add Appendix with recommendations overview<a href="#appendix-C-4.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-5.1">
-          <p id="appendix-C-5.1.1">Fold CDS/CDNSKEY consistency requirements (Section 6) into Section 2 (on acceptance checks)<a href="#appendix-C-5.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-5.1.1">Editorial changes<a href="#appendix-C-5.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-6.1">
-          <p id="appendix-C-6.1.1">Clarify continuity of validation<a href="#appendix-C-6.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-6.1.1">Change type to BCP<a href="#appendix-C-6.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-7.1">
-          <p id="appendix-C-7.1.1">In RRR, clarify that registries should not bootstrap if registrar has no deactivation interface (or if registrar does the automation)<a href="#appendix-C-7.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-7.1.1">Fold CDS/CDNSKEY consistency requirements (Section 6) into Section 2 (on acceptance checks)<a href="#appendix-C-7.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-8.1">
-          <p id="appendix-C-8.1.1">Remove Appendix C ("Approaches not pursued")<a href="#appendix-C-8.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-8.1.1">Clarify continuity of validation<a href="#appendix-C-8.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<ul class="normal">
-<li class="normal" id="appendix-C-9.1">
-          <p id="appendix-C-9.1.1">draft-ietf-dnsop-ds-automation-01<a href="#appendix-C-9.1.1" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="appendix-C-9.1">
+          <p id="appendix-C-9.1.1">In RRR, clarify that registries should not bootstrap if registrar has no deactivation interface (or if registrar does the automation)<a href="#appendix-C-9.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-10.1">
-          <p id="appendix-C-10.1.1">Remove Recommendation 6.1.2 which had told parents to require publication of both CDS and CDNSKEY<a href="#appendix-C-10.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-10.1.1">Remove Appendix C ("Approaches not pursued")<a href="#appendix-C-10.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-C-11.1">
-          <p id="appendix-C-11.1.1">Clarify Recommendation 5.1.3 (on suspension of automation after DS RRset removal) and provide extra analysis<a href="#appendix-C-11.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-C-11.1">
+          <p id="appendix-C-11.1.1">draft-ietf-dnsop-ds-automation-01<a href="#appendix-C-11.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-12.1">
-          <p id="appendix-C-12.1.1">Providing access to DS update history is now optional<a href="#appendix-C-12.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-12.1.1">Remove Recommendation 6.1.2 which had told parents to require publication of both CDS and CDNSKEY<a href="#appendix-C-12.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-13.1">
-          <p id="appendix-C-13.1.1">Humans (domains holders) should be notified according to preferences established with registry/registrar (not necessarily via email)<a href="#appendix-C-13.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-13.1.1">Clarify Recommendation 5.1.3 (on suspension of automation after DS RRset removal) and provide extra analysis<a href="#appendix-C-13.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-14.1">
-          <p id="appendix-C-14.1.1">Remove redundant Recommendation 5.1.5 (same as 3.1.4)<a href="#appendix-C-14.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-14.1.1">Providing access to DS update history is now optional<a href="#appendix-C-14.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-15.1">
-          <p id="appendix-C-15.1.1">Editorial changes<a href="#appendix-C-15.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-15.1.1">Humans (domains holders) should be notified according to preferences established with registry/registrar (not necessarily via email)<a href="#appendix-C-15.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<ul class="normal">
-<li class="normal" id="appendix-C-16.1">
-          <p id="appendix-C-16.1.1">draft-ietf-dnsop-ds-automation-00<a href="#appendix-C-16.1.1" class="pilcrow">¶</a></p>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="appendix-C-16.1">
+          <p id="appendix-C-16.1.1">Remove redundant Recommendation 5.1.5 (same as 3.1.4)<a href="#appendix-C-16.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-17.1">
-          <p id="appendix-C-17.1.1">Rename after adoption<a href="#appendix-C-17.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-17.1.1">Editorial changes<a href="#appendix-C-17.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
 <li class="normal" id="appendix-C-18.1">
-          <p id="appendix-C-18.1.1">draft-shetho-dnsop-ds-automation-02<a href="#appendix-C-18.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-18.1.1">draft-ietf-dnsop-ds-automation-00<a href="#appendix-C-18.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-19.1">
-          <p id="appendix-C-19.1.1">Allow DS automation during registry update lock<a href="#appendix-C-19.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-C-20.1">
-          <p id="appendix-C-20.1.1">Editorial changes<a href="#appendix-C-20.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-19.1.1">Rename after adoption<a href="#appendix-C-19.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-C-21.1">
-          <p id="appendix-C-21.1.1">draft-shetho-dnsop-ds-automation-01<a href="#appendix-C-21.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-C-20.1">
+          <p id="appendix-C-20.1.1">draft-shetho-dnsop-ds-automation-02<a href="#appendix-C-20.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="appendix-C-21.1">
+          <p id="appendix-C-21.1.1">Allow DS automation during registry update lock<a href="#appendix-C-21.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-22.1">
-          <p id="appendix-C-22.1.1">Incorporated various review feedback (editorial + adding TODOs)<a href="#appendix-C-22.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-22.1.1">Editorial changes<a href="#appendix-C-22.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
 <li class="normal" id="appendix-C-23.1">
-          <p id="appendix-C-23.1.1">draft-shetho-dnsop-ds-automation-00<a href="#appendix-C-23.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-23.1.1">draft-shetho-dnsop-ds-automation-01<a href="#appendix-C-23.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-C-24.1">
-          <p id="appendix-C-24.1.1">Initial public draft.<a href="#appendix-C-24.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-C-24.1.1">Incorporated various review feedback (editorial + adding TODOs)<a href="#appendix-C-24.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal">
+<li class="normal" id="appendix-C-25.1">
+          <p id="appendix-C-25.1.1">draft-shetho-dnsop-ds-automation-00<a href="#appendix-C-25.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="appendix-C-26.1">
+          <p id="appendix-C-26.1.1">Initial public draft.<a href="#appendix-C-26.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>
