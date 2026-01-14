@@ -122,7 +122,7 @@ This is best done by
 
 1. verifying that consistent CDS/CDNSKEY responses are served by all of the delegation's nameservers {{!I-D.ietf-dnsop-cds-consistency}};
 
-2. verifying that the resulting DS RRset does not break the delegation if applied ({{?RFC7344, Section 4.1}}), i.e., that it provides at least one valid path for validators to use ({{?RFC6840, Section 5.11}}). This is the case if the child's DNSKEY RRset has a valid RRSIG signature from a key that is referenced by at least one DS record, with the digest type and signing algorithm values designated as "RECOMMENDED" or "MUST" in the "Use for DNSSEC Validation" columns of the relevant IANA registries ({{DS-IANA}} and {{DNSKEY-IANA}}).
+2. verifying that the resulting DS RRset does not break the delegation if applied ({{?RFC7344, Section 4.1}}), i.e., that it provides at least one valid path for validators to use ({{?RFC6840, Section 5.11}}). This is the case if the child's DNSKEY RRset has a valid RRSIG signature from a key that is referenced by at least one DS record, with the digest type and signing algorithm values designated as "RECOMMENDED" or "MUST" in the "Use for DNSSEC Validation" columns of the relevant IANA registries ({{DS-IANA}} and {{DNSKEY-IANA}}). (These checks need not be enforced when provisioning DS records manually in order to enable the use other digest types or algorithms for potentially non-interoperable purposes.)
 
 Even without an update being requested, Parents MAY occasionally check whether the current DS contents would still be acceptable if they were newly submitted in CDS/CDNSKEY form (see {{acceptance}}).
 Any failures — such as a missing DNSKEY due to improper rollover timing ({{?RFC6781, Section 4.1}}, or changed algorithm requirements — MAY be communicated in line with {{reporting}}.
@@ -460,6 +460,10 @@ For ease of review, the recommendations from this document are reproduced here w
 
 
 # Change History (to be removed before publication)
+
+* draft-ietf-dnsop-ds-automation-03
+
+> Editorial changes
 
 * draft-ietf-dnsop-ds-automation-02
 
