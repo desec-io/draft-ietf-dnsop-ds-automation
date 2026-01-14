@@ -214,9 +214,10 @@ Table of Contents
        referenced by at least one DS record, with the digest type and
        signing algorithm values designated as "RECOMMENDED" or "MUST" in
        the "Use for DNSSEC Validation" columns of the relevant IANA
-       registries ([DS-IANA] and [DNSKEY-IANA]).  (In contrast, digest
-       type and algorithm checks need not necessarily be enforced when
-       provisioning DS records manually.)
+       registries ([DS-IANA] and [DNSKEY-IANA]).  (A domain holder may
+       still use other digest types and algorithm for experimental
+       purposes by provisioning DS records manually, where these checks
+       need not be enforced.)
 
    Even without an update being requested, Parents MAY occasionally
    check whether the current DS contents would still be acceptable if
