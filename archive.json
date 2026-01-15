@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-13T01:55:47.152445+00:00",
-  "repo": "desec-io/draft-shetho-dnsop-ds-automation",
+  "timestamp": "2026-01-15T01:57:59.400567+00:00",
+  "repo": "desec-io/draft-ietf-dnsop-ds-automation",
   "labels": [
     {
       "name": "bug",
@@ -55,7 +55,7 @@
       "number": 1,
       "id": "PR_kwDONCQOHM6caKqG",
       "title": "Replace \"owner\" with \"holder\"",
-      "url": "https://github.com/desec-io/draft-shetho-dnsop-ds-automation/pull/1",
+      "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/pull/1",
       "state": "MERGED",
       "author": "oskar456",
       "authorAssociation": "CONTRIBUTOR",
@@ -64,7 +64,7 @@
       "body": "It is tricky to talk about ownership of a domain name. The term holder is better suited here.",
       "createdAt": "2025-06-27T11:34:27Z",
       "updatedAt": "2025-06-27T12:17:19Z",
-      "baseRepository": "desec-io/draft-shetho-dnsop-ds-automation",
+      "baseRepository": "desec-io/draft-ietf-dnsop-ds-automation",
       "baseRefName": "main",
       "baseRefOid": "7f5a83b4b0c4b649300b18a1cf55d919bcc27290",
       "headRepository": "oskar456/draft-shetho-dnsop-ds-automation",
