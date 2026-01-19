@@ -67,7 +67,7 @@ Enabling support for automatic acceptance of DS parameters from the Child DNS op
 
 {{!RFC7344}}, {{!RFC8078}}, {{!RFC9615}} automate DNSSEC delegation trust maintenance by having the child publish CDS and/or CDNSKEY records which indicate the delegation's desired DNSSEC parameters ("DS automation").
 
-Parental Agents using these protocols have to make a number of technical decisions relating to issues of acceptance checks, timing, error reporting, locks, etc. Additionally, when using the RRR model (as is common amongst top-level domains), both the registrar and the registry can effect parent-side changes to the delare reviewers not egation. In such a situation, additional questions arise.
+Parental Agents using these protocols have to make a number of technical decisions relating to issues of acceptance checks, timing, error reporting, locks, etc. Additionally, when using the RRR model (as is common amongst top-level domains), both the registrar and the registry can effect parent-side changes to the delegation. In such a situation, additional questions arise.
 
 Not all existing DS automation deployments have made the same choices with respect to these questions, leading to somewhat inconsistent behavior. From the perspective of a domain holder with domain names under various TLDs, this may be unexpected and confusing.
 
@@ -125,7 +125,7 @@ This is best done by
 2. verifying that the resulting DS RRset does not break the delegation if applied ({{?RFC7344, Section 4.1}}), i.e., that it provides at least one valid path for validators to use ({{?RFC6840, Section 5.11}}). This is the case if the child's DNSKEY RRset has a valid RRSIG signature from a key that is referenced by at least one DS record, with the digest type and signing algorithm values designated as "RECOMMENDED" or "MUST" in the "Use for DNSSEC Validation" columns of the relevant IANA registries ({{DS-IANA}} and {{DNSKEY-IANA}}). (These checks need not be enforced when provisioning DS records manually in order to enable the use other digest types or algorithms for potentially non-interoperable purposes.)
 
 Even without an update being requested, Parents MAY occasionally check whether the current DS contents would still be acceptable if they were newly submitted in CDS/CDNSKEY form (see {{acceptance}}).
-Any failures — such as a missing DNSKEY due to improper rollover timing ({{?RFC6781, Section 4.1}}, or changed algorithm requirements — MAY be communicated in line with {{reporting}}.
+Any failures — such as a missing DNSKEY due to improper rollover timing ({{?RFC6781, Section 4.1}}), or changed algorithm requirements — MAY be communicated in line with {{reporting}}.
 The existing DS record set MUST NOT be altered or removed as a result of such checks.
 
 ### TTLs and Caching
@@ -301,7 +301,7 @@ In the RRR model, there are multiple channels through which DS parameters can be
 
 - The registrar can retrieve the same and relay it to the registry;
 
-- Registrars or (less commonly) registries can obtain the information from the registrant through another channel (such as a non-automated "manual update" via webform submission), and relay it to the registry.
+- The registrar can obtain the information from the registrant through another channel (such as a non-automated "manual update" via webform submission), and relay it to the registry.
 
 There are several considerations in this context, as follows.
 
@@ -350,7 +350,7 @@ When the RRR model is used, there is a potential for collision if both the regis
 
 The issue disappears entirely when scanning is replaced by notifications that trigger DS maintenance through one party's designated endpoint {{!RFC9859}}, and can otherwise be mitigated if the registry and registrar agree that only one of them will perform scanning.
 
-As a standard aspect of key rollovers (RFC 6781), the Child DNS operator is expected to monitor propagation of Child zone updates to all authoritative nameserver instances, and only proceed to the next step once replication has succeeded everywhere and the DS record set was subsequently updated (and in no case before the DS RRset's TTL has passed). Any breakage resulting from improper timing on the Child side is outside of the Parent's sphere of influence, and thus out of scope of DS automation considerations.
+As a standard aspect of key rollovers {{?RFC6781}}, the Child DNS operator is expected to monitor propagation of Child zone updates to all authoritative nameserver instances, and only proceed to the next step once replication has succeeded everywhere and the DS record set was subsequently updated (and in no case before the DS RRset's TTL has passed). Any breakage resulting from improper timing on the Child side is outside of the Parent's sphere of influence, and thus out of scope of DS automation considerations.
 
 
 # IANA Considerations
