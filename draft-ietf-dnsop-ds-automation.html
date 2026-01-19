@@ -8,7 +8,7 @@
 <meta content="Steve Sheng" name="author">
 <meta content="Peter Thomassen" name="author">
 <meta content="
-       Enabling support for automatic acceptance of DS parameters from the Child DNS operator (via RFCs 7344, 8078, 9615) requires the parent operator, often a registry or registrar, to make a number of technical decisions. This document describes recommendations for new deployments of such DS automation. 
+       Enabling support for automatic acceptance of DS parameters from the Child DNS operator (via RFCs 7344, 8078, 9615) requires the parental agent, often a registry or registrar, to make a number of technical decisions. This document describes recommendations for new deployments of such DS automation. 
     " name="description">
 <meta content="xml2rfc 3.31.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
@@ -1048,7 +1048,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Sheng &amp; Thomassen</td>
-<td class="center">Expires 18 July 2026</td>
+<td class="center">Expires 23 July 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1061,12 +1061,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dnsop-ds-automation-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-01-14" class="published">14 January 2026</time>
+<time datetime="2026-01-19" class="published">19 January 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Best Current Practice</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-07-18">18 July 2026</time></dd>
+<dd class="expires"><time datetime="2026-07-23">23 July 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1082,7 +1082,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Operational Recommendations for DS Automation</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">Enabling support for automatic acceptance of DS parameters from the Child DNS operator (via RFCs 7344, 8078, 9615) requires the parent operator, often a registry or registrar, to make a number of technical decisions. This document describes recommendations for new deployments of such DS automation.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">Enabling support for automatic acceptance of DS parameters from the Child DNS operator (via RFCs 7344, 8078, 9615) requires the parental agent, often a registry or registrar, to make a number of technical decisions. This document describes recommendations for new deployments of such DS automation.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-discussion-venues">
@@ -1114,7 +1114,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 23 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1281,7 +1281,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-1-1"><span>[<a href="#RFC7344" class="cite xref">RFC7344</a>]</span>, <span>[<a href="#RFC8078" class="cite xref">RFC8078</a>]</span>, <span>[<a href="#RFC9615" class="cite xref">RFC9615</a>]</span> automate DNSSEC delegation trust maintenance by having the child publish CDS and/or CDNSKEY records which indicate the delegation's desired DNSSEC parameters ("DS automation").<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">Parental Agents using these protocols have to make a number of technical decisions relating to issues of acceptance checks, timing, error reporting, locks, etc. Additionally, when using the RRR model (as is common amongst top-level domains), both the registrar and the registry can effect parent-side changes to the delare reviewers not egation. In such a situation, additional questions arise.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-2">Parental Agents using these protocols have to make a number of technical decisions relating to issues of acceptance checks, timing, error reporting, locks, etc. Additionally, when using the RRR model (as is common amongst top-level domains), both the registrar and the registry can effect parent-side changes to the delegation. In such a situation, additional questions arise.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Not all existing DS automation deployments have made the same choices with respect to these questions, leading to somewhat inconsistent behavior. From the perspective of a domain holder with domain names under various TLDs, this may be unexpected and confusing.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">New deployments of DS automation therefore SHOULD follow the recommendations set out in this document, to achieve a more uniform treatment across suffixes and to minimize user surprise. The recommendations are intended to provide baseline safety and uniformity of behavior across parents. Registries with additional requirements on DS update checks MAY implement any additional checks in line with local policy.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">In the following sections, operational questions are first raised and answered with the corresponding recommendations. Each section is concluded with an analysis of its recommendations, and related considerations. A combined view of the recommendations from all sections is given in <a href="#recommendations_overview" class="auto internal xref">Appendix B</a>.<a href="#section-1-5" class="pilcrow">¶</a></p>
@@ -1350,7 +1350,7 @@ and<a href="#section-2.1-1.1.2.1.3" class="pilcrow">¶</a></p>
 and cancel the update if the verifications do not succeed.<a href="#section-2.1-1.1.3" class="pilcrow">¶</a></p>
 </li>
           <li id="section-2.1-1.2">
-            <p id="section-2.1-1.2.1">Parent operators (such as registries) SHOULD reduce a DS record set's TTL to a value between 5–15 minutes when the set of records is changed, and restore the normal TTL value at a later occasion (but not before the previous DS RRset's TTL has expired).<a href="#section-2.1-1.2.1" class="pilcrow">¶</a></p>
+            <p id="section-2.1-1.2.1">Parent-side entities (such as registries) SHOULD reduce a DS record set's TTL to a value between 5–15 minutes when the set of records is changed, and restore the normal TTL value at a later occasion (but not before the previous DS RRset's TTL has expired).<a href="#section-2.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-2.1-1.3">
             <p id="section-2.1-1.3.1">DNS operators SHOULD publish both CDNSKEY records as well as CDS records, and follow best practice for the choice of hash digest type <span>[<a href="#DS-IANA" class="cite xref">DS-IANA</a>]</span>.<a href="#section-2.1-1.3.1" class="pilcrow">¶</a></p>
@@ -1379,7 +1379,7 @@ and cancel the update if the verifications do not succeed.<a href="#section-2.1-
 </li>
           </ol>
 <p id="section-2.2.1-4">Even without an update being requested, Parents MAY occasionally check whether the current DS contents would still be acceptable if they were newly submitted in CDS/CDNSKEY form (see <a href="#acceptance" class="auto internal xref">Section 2</a>).
-Any failures — such as a missing DNSKEY due to improper rollover timing (<span>[<a href="#RFC6781" class="cite xref">RFC6781</a>], <a href="https://rfc-editor.org/rfc/rfc6781#section-4.1" class="relref">Section 4.1</a></span>, or changed algorithm requirements — MAY be communicated in line with <a href="#reporting" class="auto internal xref">Section 3</a>.
+Any failures — such as a missing DNSKEY due to improper rollover timing (<span>[<a href="#RFC6781" class="cite xref">RFC6781</a>], <a href="https://rfc-editor.org/rfc/rfc6781#section-4.1" class="relref">Section 4.1</a></span>), or changed algorithm requirements — MAY be communicated in line with <a href="#reporting" class="auto internal xref">Section 3</a>.
 The existing DS record set MUST NOT be altered or removed as a result of such checks.<a href="#section-2.2.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1654,7 +1654,7 @@ The existing DS record set MUST NOT be altered or removed as a result of such ch
             <p id="section-5.2-2.2.1">The registrar can retrieve the same and relay it to the registry;<a href="#section-5.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.2-2.3">
-            <p id="section-5.2-2.3.1">Registrars or (less commonly) registries can obtain the information from the registrant through another channel (such as a non-automated "manual update" via webform submission), and relay it to the registry.<a href="#section-5.2-2.3.1" class="pilcrow">¶</a></p>
+            <p id="section-5.2-2.3.1">The registrar can obtain the information from the registrant through another channel (such as a non-automated "manual update" via webform submission), and relay it to the registry.<a href="#section-5.2-2.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-5.2-3">There are several considerations in this context, as follows.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
@@ -1719,7 +1719,7 @@ As a side effect, this works towards avoiding redundant automation at the regist
           </h4>
 <p id="section-5.2.3-1">When the RRR model is used, there is a potential for collision if both the registry and the registrar are automating DS provisioning by scanning the child for CDS/CDNSKEY records. No disruptive consequences are expected if both parties perform DS automation. An exception is when during a key rollover, registry and registrar see different versions of the Child's DS update requests, such as when CDS/CDNSKEY records are retrieved from different vantage points. Although unlikely due to Recommendation 1a of <a href="#acceptance" class="auto internal xref">Section 2</a>, this may lead to flapping of DS updates; however, it is not expected to be harmful as either DS RRset will allow for the validation function to continue to work, as ensured by Recommendation 1b of <a href="#acceptance" class="auto internal xref">Section 2</a>. The effect subsides as the Child's state eventually becomes consistent (roughly, within the child's replication delay); any flapping until then will be a minor nuisance only.<a href="#section-5.2.3-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.3-2">The issue disappears entirely when scanning is replaced by notifications that trigger DS maintenance through one party's designated endpoint <span>[<a href="#RFC9859" class="cite xref">RFC9859</a>]</span>, and can otherwise be mitigated if the registry and registrar agree that only one of them will perform scanning.<a href="#section-5.2.3-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.3-3">As a standard aspect of key rollovers (RFC 6781), the Child DNS operator is expected to monitor propagation of Child zone updates to all authoritative nameserver instances, and only proceed to the next step once replication has succeeded everywhere and the DS record set was subsequently updated (and in no case before the DS RRset's TTL has passed). Any breakage resulting from improper timing on the Child side is outside of the Parent's sphere of influence, and thus out of scope of DS automation considerations.<a href="#section-5.2.3-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.3-3">As a standard aspect of key rollovers <span>[<a href="#RFC6781" class="cite xref">RFC6781</a>]</span>, the Child DNS operator is expected to monitor propagation of Child zone updates to all authoritative nameserver instances, and only proceed to the next step once replication has succeeded everywhere and the DS record set was subsequently updated (and in no case before the DS RRset's TTL has passed). Any breakage resulting from improper timing on the Child side is outside of the Parent's sphere of influence, and thus out of scope of DS automation considerations.<a href="#section-5.2.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1948,7 +1948,7 @@ and<a href="#appendix-B.1-1.1.2.1.3" class="pilcrow">¶</a></p>
 and cancel the update if the verifications do not succeed.<a href="#appendix-B.1-1.1.3" class="pilcrow">¶</a></p>
 </li>
           <li id="appendix-B.1-1.2">
-            <p id="appendix-B.1-1.2.1">Parent operators (such as registries) SHOULD reduce a DS record set's TTL to a value between 5–15 minutes when the set of records is changed, and restore the normal TTL value at a later occasion (but not before the previous DS RRset's TTL has expired).<a href="#appendix-B.1-1.2.1" class="pilcrow">¶</a></p>
+            <p id="appendix-B.1-1.2.1">Parent-side entities (such as registries) SHOULD reduce a DS record set's TTL to a value between 5–15 minutes when the set of records is changed, and restore the normal TTL value at a later occasion (but not before the previous DS RRset's TTL has expired).<a href="#appendix-B.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
           <li id="appendix-B.1-1.3">
             <p id="appendix-B.1-1.3.1">DNS operators SHOULD publish both CDNSKEY records as well as CDS records, and follow best practice for the choice of hash digest type <span>[<a href="#DS-IANA" class="cite xref">DS-IANA</a>]</span>.<a href="#appendix-B.1-1.3.1" class="pilcrow">¶</a></p>

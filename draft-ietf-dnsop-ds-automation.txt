@@ -5,8 +5,8 @@
 DNSOP Working Group                                             S. Sheng
 Internet-Draft                                                          
 Intended status: Best Current Practice                      P. Thomassen
-Expires: 18 July 2026                                              deSEC
-                                                         14 January 2026
+Expires: 23 July 2026                                              deSEC
+                                                         19 January 2026
 
 
              Operational Recommendations for DS Automation
@@ -15,9 +15,9 @@ Expires: 18 July 2026                                              deSEC
 Abstract
 
    Enabling support for automatic acceptance of DS parameters from the
-   Child DNS operator (via RFCs 7344, 8078, 9615) requires the parent
-   operator, often a registry or registrar, to make a number of
-   technical decisions.  This document describes recommendations for new
+   Child DNS operator (via RFCs 7344, 8078, 9615) requires the parental
+   agent, often a registry or registrar, to make a number of technical
+   decisions.  This document describes recommendations for new
    deployments of such DS automation.
 
 Discussion Venues
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 July 2026.
+   This Internet-Draft will expire on 23 July 2026.
 
 Copyright Notice
 
@@ -113,8 +113,8 @@ Table of Contents
    technical decisions relating to issues of acceptance checks, timing,
    error reporting, locks, etc.  Additionally, when using the RRR model
    (as is common amongst top-level domains), both the registrar and the
-   registry can effect parent-side changes to the delare reviewers not
-   egation.  In such a situation, additional questions arise.
+   registry can effect parent-side changes to the delegation.  In such a
+   situation, additional questions arise.
 
    Not all existing DS automation deployments have made the same choices
    with respect to these questions, leading to somewhat inconsistent
@@ -182,10 +182,11 @@ Table of Contents
 
        and cancel the update if the verifications do not succeed.
 
-   2.  Parent operators (such as registries) SHOULD reduce a DS record
-       set's TTL to a value between 5–15 minutes when the set of records
-       is changed, and restore the normal TTL value at a later occasion
-       (but not before the previous DS RRset's TTL has expired).
+   2.  Parent-side entities (such as registries) SHOULD reduce a DS
+       record set's TTL to a value between 5–15 minutes when the set of
+       records is changed, and restore the normal TTL value at a later
+       occasion (but not before the previous DS RRset's TTL has
+       expired).
 
    3.  DNS operators SHOULD publish both CDNSKEY records as well as CDS
        records, and follow best practice for the choice of hash digest
@@ -223,7 +224,7 @@ Table of Contents
    check whether the current DS contents would still be acceptable if
    they were newly submitted in CDS/CDNSKEY form (see Section 2).  Any
    failures — such as a missing DNSKEY due to improper rollover timing
-   ([RFC6781], Section 4.1, or changed algorithm requirements — MAY be
+   ([RFC6781], Section 4.1), or changed algorithm requirements — MAY be
    communicated in line with Section 3.  The existing DS record set MUST
    NOT be altered or removed as a result of such checks.
 
@@ -616,10 +617,9 @@ Table of Contents
 
    *  The registrar can retrieve the same and relay it to the registry;
 
-   *  Registrars or (less commonly) registries can obtain the
-      information from the registrant through another channel (such as a
-      non-automated "manual update" via webform submission), and relay
-      it to the registry.
+   *  The registrar can obtain the information from the registrant
+      through another channel (such as a non-automated "manual update"
+      via webform submission), and relay it to the registry.
 
    There are several considerations in this context, as follows.
 
@@ -751,7 +751,7 @@ Table of Contents
    registry and registrar agree that only one of them will perform
    scanning.
 
-   As a standard aspect of key rollovers (RFC 6781), the Child DNS
+   As a standard aspect of key rollovers [RFC6781], the Child DNS
    operator is expected to monitor propagation of Child zone updates to
    all authoritative nameserver instances, and only proceed to the next
    step once replication has succeeded everywhere and the DS record set
@@ -962,10 +962,11 @@ B.1.  Acceptance Checks and Safety Measures
 
        and cancel the update if the verifications do not succeed.
 
-   2.  Parent operators (such as registries) SHOULD reduce a DS record
-       set's TTL to a value between 5–15 minutes when the set of records
-       is changed, and restore the normal TTL value at a later occasion
-       (but not before the previous DS RRset's TTL has expired).
+   2.  Parent-side entities (such as registries) SHOULD reduce a DS
+       record set's TTL to a value between 5–15 minutes when the set of
+       records is changed, and restore the normal TTL value at a later
+       occasion (but not before the previous DS RRset's TTL has
+       expired).
 
    3.  DNS operators SHOULD publish both CDNSKEY records as well as CDS
        records, and follow best practice for the choice of hash digest
