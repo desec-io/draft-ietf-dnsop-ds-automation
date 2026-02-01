@@ -5,8 +5,8 @@
 DNSOP Working Group                                             S. Sheng
 Internet-Draft                                                          
 Intended status: Best Current Practice                      P. Thomassen
-Expires: 23 July 2026                                              deSEC
-                                                         19 January 2026
+Expires: 5 August 2026                                             deSEC
+                                                         1 February 2026
 
 
              Operational Recommendations for DS Automation
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 July 2026.
+   This Internet-Draft will expire on 5 August 2026.
 
 Copyright Notice
 
@@ -248,13 +248,12 @@ Table of Contents
    negligible impact on the overall load of a registry's authoritative
    nameserver infrastructure [LowTTL].
 
-   The reduction should be in effect at least until the previous DS
-   record set has expired from caches, that is, the period during which
-   the low-TTL is applied should exceed the normal TTL value.  The
-   routine re-signing of the DS RRset (usually after a few days)
-   provides a convenient opportunity for resetting the TTL.  When using
-   EPP, the server MAY advertise its TTL policy via the domain <info>
-   command described in [RFC9803], Section 2.1.1.2.
+   The reduction should be in effect at least for a couple of days and
+   until the previous DS record set has expired from caches, that is,
+   the period during which the low-TTL is applied typically will
+   significantly exceed the normal TTL value.  When using EPP, the
+   server MAY advertise its TTL policy via the domain <info> command
+   described in [RFC9803], Section 2.1.1.2.
 
    While this approach enables quick rollbacks, timing of the desired DS
    update process itself is largely governed by the previous DS RRset's
