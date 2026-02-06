@@ -59,7 +59,7 @@ informative:
 
 --- abstract
 
-Enabling support for automatic acceptance of DS parameters from the Child DNS operator (via RFCs 7344, 8078, 9615) requires the parental agent, often a registry or registrar, to make a number of technical decisions. This document describes recommendations for new deployments of such DS automation.
+Enabling support for automatic acceptance of DS parameters from the Child DNS operator (via RFCs 7344, 8078, 9615) requires the parental agent, often a registry or registrar, to make a number of technical decisions around acceptance checks, error and sucess reporting, and multi-party issues such as concurrent updates. This document describes how these points are best addressed in practice.
 
 --- middle
 
