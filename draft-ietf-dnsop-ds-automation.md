@@ -256,6 +256,8 @@ Under such a security model, no tangible security benefit is gained by preventin
 
 When a registry-side update lock is in place, the registrar cannot apply any changes (for security or delinquency or other reasons). However, it does not protect against changes made by the registry itself. This is exemplified by the serverUpdateProhibited EPP status, which demands only that the registrar's "\[r\]equests to update the object \[...\] MUST be rejected" ({{?RFC5731, Section 2.3}}). This type of lock therefore precludes DS automation by the registrar, while registry-side automation may continue.
 
+DS automation by the registry further is consistent with {{?RFC5731, Section 2.3}}, which explicitly notes that an EPP server (registry) may override status values set by an EPP client (registrar), subject to local server policies. The risk that DS changes from registry-side DS automation might go unnoticed by the registrar is mitigated by sending change notifications to the registrar; see Recommendation 4 of {{reporting}}.
+
 
 ### Detailed Rationale
 
