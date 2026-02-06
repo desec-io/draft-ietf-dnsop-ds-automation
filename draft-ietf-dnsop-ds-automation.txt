@@ -5,8 +5,8 @@
 DNSOP Working Group                                             S. Sheng
 Internet-Draft                                                          
 Intended status: Best Current Practice                      P. Thomassen
-Expires: 5 August 2026                                             deSEC
-                                                         1 February 2026
+Expires: 10 August 2026                                            deSEC
+                                                         6 February 2026
 
 
              Operational Recommendations for DS Automation
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 August 2026.
+   This Internet-Draft will expire on 10 August 2026.
 
 Copyright Notice
 
@@ -504,6 +504,14 @@ Table of Contents
    the object [...] MUST be rejected" ([RFC5731], Section 2.3).  This
    type of lock therefore precludes DS automation by the registrar,
    while registry-side automation may continue.
+
+   DS automation by the registry further is consistent with [RFC5731],
+   Section 2.3, which explicitly notes that an EPP server (registry) may
+   override status values set by an EPP client (registrar), subject to
+   local server policies.  The risk that DS changes from registry-side
+   DS automation might go unnoticed by the registrar is mitigated by
+   sending change notifications to the registrar; see Recommendation 4
+   of Section 3.
 
 4.2.2.  Detailed Rationale
 
