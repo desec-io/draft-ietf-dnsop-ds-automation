@@ -5,8 +5,8 @@
 DNSOP Working Group                                             S. Sheng
 Internet-Draft                                                          
 Intended status: Best Current Practice                      P. Thomassen
-Expires: 10 August 2026                                            deSEC
-                                                         6 February 2026
+Expires: 15 August 2026                                            deSEC
+                                                        11 February 2026
 
 
              Operational Recommendations for DS Automation
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 August 2026.
+   This Internet-Draft will expire on 15 August 2026.
 
 Copyright Notice
 
@@ -115,7 +115,8 @@ Table of Contents
    error reporting, locks, etc.  Additionally, when using the RRR model
    (as is common amongst top-level domains), both the registrar and the
    registry can effect parent-side changes to the delegation.  In such a
-   situation, additional questions arise.
+   situation, additional opportunities for implementation differences
+   arise.
 
    Not all existing DS automation deployments have made the same choices
    with respect to these questions, leading to somewhat inconsistent
@@ -123,8 +124,9 @@ Table of Contents
    under various TLDs, this may be unexpected and confusing.
 
    New deployments of DS automation therefore SHOULD follow the
-   recommendations set out in this document, to achieve a more uniform
-   treatment across suffixes and to minimize user surprise.  The
+   recommendations set out in this document, both to achieve a more
+   uniform treatment across suffixes — minimizing user surprise — and to
+   prevent disruption of DNS and DNSSEC functionality.  The
    recommendations are intended to provide baseline safety and
    uniformity of behavior across parents.  Registries with additional
    requirements on DS update checks MAY implement any additional checks
@@ -333,7 +335,7 @@ Table of Contents
        operator SHOULD be notified.
 
    2.  For error conditions, the child DNS operator and the domain's
-       technical contact (if applicable) SHOULD be first notified.  The
+       technical contact (if applicable) SHOULD be notified first.  The
        registrant SHOULD NOT be notified unless the problem persists for
        a prolonged amount of time (e.g., three days).
 
@@ -599,8 +601,9 @@ Table of Contents
        entire DS record set ([RFC8078], Section 4), DS automation SHOULD
        NOT be suspended.  For all other removal requests (such as when
        received via EPP or a web form), DS automation SHOULD be
-       suspended, in order to prevent accidental re-initialization when
-       the registrant intended to disable DNSSEC.
+       suspended until a new DS record set has been provisioned, in
+       order to prevent accidental re-initialization when the registrant
+       intended to disable DNSSEC.
 
    4.  Whenever a non-empty DS record set is provisioned, through
        whichever channel, DS automation SHOULD NOT (or no longer) be
@@ -766,7 +769,7 @@ Table of Contents
    was subsequently updated (and in no case before the DS RRset's TTL
    has passed).  Any breakage resulting from improper timing on the
    Child side is outside of the Parent's sphere of influence, and thus
-   out of scope of DS automation considerations.
+   cannot be handled with only parent-side changes.
 
 6.  IANA Considerations
 
@@ -987,7 +990,7 @@ B.2.  Reporting and Transparency
        operator SHOULD be notified.
 
    2.  For error conditions, the child DNS operator and the domain's
-       technical contact (if applicable) SHOULD be first notified.  The
+       technical contact (if applicable) SHOULD be notified first.  The
        registrant SHOULD NOT be notified unless the problem persists for
        a prolonged amount of time (e.g., three days).
 
@@ -1034,8 +1037,9 @@ B.4.  Multiple Submitting Parties
        entire DS record set ([RFC8078], Section 4), DS automation SHOULD
        NOT be suspended.  For all other removal requests (such as when
        received via EPP or a web form), DS automation SHOULD be
-       suspended, in order to prevent accidental re-initialization when
-       the registrant intended to disable DNSSEC.
+       suspended until a new DS record set has been provisioned, in
+       order to prevent accidental re-initialization when the registrant
+       intended to disable DNSSEC.
 
    4.  Whenever a non-empty DS record set is provisioned, through
        whichever channel, DS automation SHOULD NOT (or no longer) be
@@ -1050,6 +1054,10 @@ B.4.  Multiple Submitting Parties
        side DS automation.
 
 Appendix C.  Change History (to be removed before publication)
+
+   *  draft-ietf-dnsop-ds-automation-04
+
+      Editorial changes
 
    *  draft-ietf-dnsop-ds-automation-03
 
