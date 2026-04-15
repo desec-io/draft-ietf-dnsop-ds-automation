@@ -411,7 +411,7 @@ For ease of review and referencing, the recommendations from this document are r
 
 ## Acceptance Checks and Safety Measures
 
-1. Entities performing automated DS maintenance SHOULD verify
+1. Entities performing automated DS maintenance SHOULD verify:
 
     {:type="a"}
     1. the unambigious intent of each DS update request as per {{!I-D.ietf-dnsop-cds-consistency}}, by checking its consistency both
@@ -435,7 +435,7 @@ For ease of review and referencing, the recommendations from this document are r
 
 2. For error conditions, the child DNS operator and the domain's technical contact (if applicable) SHOULD be notified first. The registrant SHOULD NOT be notified unless the problem persists for a prolonged amount of time (e.g., three days).
 
-3. Child DNS operators SHOULD be notified using a report query {{!RFC9567}} to the agent domain as described in ({{!RFC9859, Section 4}}). Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
+3. Child DNS operators SHOULD be notified using a report query {{!RFC9567}} to the agent domain as described in {{Section 4 of !RFC9859}}. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
 
 4. In the RRR model, registries performing DS automation SHOULD inform the registrar of any DS record changes via the EPP Change Poll Extension {{!RFC8590}} or a similar channel.
 
@@ -443,9 +443,9 @@ For ease of review and referencing, the recommendations from this document are r
 
 ## Registration Locks
 
-1. To secure ongoing operations, automated DS maintenance SHOULD NOT be suspended based on a registrar update lock alone (such as EPP status clientUpdateProhibited).
+1. To secure ongoing operations, automated DS maintenance SHOULD NOT be suspended based on a registrar update lock alone (such as EPP status clientUpdateProhibited {{?RFC5731}}).
 
-2. When performed by the registry, automated DS maintenance SHOULD NOT be suspended based on a registry update lock alone (such as EPP status serverUpdateProhibited).
+2. When performed by the registry, automated DS maintenance SHOULD NOT be suspended based on a registry update lock alone (such as EPP status serverUpdateProhibited {{?RFC5731}}).
 
 ## Multiple Submitting Parties
 
