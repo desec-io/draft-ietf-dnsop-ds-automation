@@ -190,8 +190,9 @@ Table of Contents
    cryptographic policy requirements.  However, not following any
    requirements designated with the "SHOULD" key word will generally
    lead to undesirable effects of ambiguity and interoperability issues.
-   Implementers MUST carefully weigh whether any particular deviation is
-   justified in its particular context.
+   When implementing these recommendations, operators have to carefully
+   weigh whether any particular deviation is justified in their
+   particular context.
 
    Registries with additional requirements on DS update checks MAY
    implement any additional checks in line with local policy.
