@@ -426,7 +426,7 @@ For ease of review and referencing, the recommendations from this document are r
 
 2. Parent-side entities (such as registries) SHOULD reduce a DS record set's TTL to a value between 5–15 minutes when the set of records is changed, and restore the normal TTL value at a later occasion (but not before the previous DS RRset's TTL has expired).
 
-3. DNS operators SHOULD publish both CDNSKEY records as well as CDS records, and follow best practice for the choice of hash digest type {{DS-IANA}}.
+3. DNS operators SHOULD publish both CDNSKEY and CDS records, and follow best practice for the choice of hash digest type {{DS-IANA}}.
 
 ## Reporting and Transparency
 
