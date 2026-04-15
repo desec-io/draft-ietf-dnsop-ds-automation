@@ -186,7 +186,7 @@ As there exists no protocol for Child DNS operators to discover a Parent's input
 
 Publishing the same information in two different formats is not ideal. Still, it is much less complex and costly than burdening the Child DNS operator with discovering each Parent's current policy. Also, it is very easily automated. Operators should ensure that published RRsets are consistent with each other.
 
-If both RRsets are published, Parents are expected to verify consistency between them {{!I-D.ietf-dnsop-cds-consistency}}, as determined by matching CDS and CDNSKEY records using hash digest algorithms whose support is mandatory {{DS-IANA}}. Consistency of CDS records with optional or unsupported hash digest types need not be enforced.
+If both RRsets are published, Parents are expected to verify consistency between them by verifying that they refer to the same set of keys {{!I-D.ietf-dnsop-cds-consistency}}. The CDS digest field need only be verified when the hash digest algorithm is designated as "MUST" in the "Implement for DNSSEC Delegation" column of the "Digest Algorithms" registry {{DS-IANA}}, and may otherwise be ignored when the digest type is unsupported.
 
 By rejecting the DS update if RRsets are found to be inconsistent, Child DNS operators are held responsible when publishing contradictory information. Note that this does not imply a restriction to the hash digest types found in the CDS RRset: if no inconsistencies are found, the parent can publish DS records with whatever digest type(s) it prefers.
 
