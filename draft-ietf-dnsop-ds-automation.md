@@ -153,9 +153,8 @@ This is best achieved by:
 
 2. verifying that the resulting DS Resource Record set (RRset) does not break the delegation if applied ({{?RFC7344, Section 4.1}}), i.e., it provides at least one valid path for validators to use ({{?RFC6840, Section 5.11}}). This is the case if the child's DNSKEY RRset has a valid RRSIG signature from a key that is referenced by at least one DS record, with the digest type and signing algorithm values designated as "RECOMMENDED" or "MUST" in the "Use for DNSSEC Validation" columns of the relevant IANA registries ({{DS-IANA}} and {{DNSKEY-IANA}}). Note that these checks need not be enforced when provisioning DS records manually in order to enable the use other digest types or algorithms for potentially non-interoperable purposes.
 
-Even without an update being requested, Parents MAY occasionally check whether the current DS contents would still be acceptable if they were newly submitted in CDS/CDNSKEY form (see {{acceptance}}).
-Any failures — such as a missing DNSKEY due to improper rollover timing ({{?RFC6781, Section 4.1}}), or changed algorithm requirements — MAY be communicated in line with {{reporting}}.
-The existing DS record set MUST NOT be altered or removed as a result of such checks.
+Even without an update being requested, Parents may occasionally check whether the current DS contents would still be acceptable if they were newly submitted in CDS/CDNSKEY form (see {{acceptance}}).
+Any failures — such as a missing DNSKEY due to improper rollover timing ({{?RFC6781, Section 4.1}}), or changed algorithm requirements — can then be communicated in line with {{reporting}}, without altering or removing the existing DS RRset.
 
 ### TTLs and Caching
 
@@ -163,7 +162,7 @@ To further reduce the impact of any misconfigured DS record set — be it from a
 
 Registries therefore should significantly lower the DS RRset's TTL for some time following an update. Pragmatic values for the reduced TTL value range between 5–15 minutes.  Such low TTLs might be expected to cause increased load on the corresponding authoritative nameservers; however, recent measurements have demonstrated them to have negligible impact on the overall load of a registry's authoritative nameserver infrastructure {{LowTTL}}.
 
-The reduction should be in effect at least for a couple of days and until the previous DS record set has expired from caches, that is, the period during which the low-TTL is applied typically will significantly exceed the normal TTL value. When using Extensible Provisioning Protocol (EPP) {{!RFC5730}}, the server MAY advertise its TTL policy via the domain `<info>` command described in {{Section 2.1.1.2 of !RFC9803}}.
+The reduction should be in effect at least for a couple of days and until the previous DS record set has expired from caches, that is, the period during which the low-TTL is applied typically will significantly exceed the normal TTL value. When using the Extensible Provisioning Protocol (EPP) {{?RFC5730}}, the domain `<info>` command described in {{Section 2.1.1.2 of ?RFC9803}} is available for advertising the server's TTL policy.
 
 While this approach enables quick rollbacks, timing of the desired DS update process itself is largely governed by the previous DS RRset's TTL, and therefore does not generally benefit from an overall speed-up. Note also that nothing is gained from first lowering the TTL of the old DS RRset: such an additional step would, in fact, require another wait period while resolver caches adjust. For the sake of completeless, there likewise is no point to increasing any DS TTL values beyond their normal value.
 
@@ -254,9 +253,9 @@ For error conditions (cases {{reporting-3 (3)}}{: format="none"} and {{reporting
 
 When the RRR model is used and the registry performs DS automation, the registrar should always stay informed of any DS record changes, e.g., via the EPP Change Poll Extension {{!RFC8590}}.
 
-The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient (e.g., no more than twice in a row). For example, when CDS and CDNSKEY records are inconsistent and prevent DS initialization, the registrant may be notified twice. Additional notifications may be sent with some back-off mechanism (in increasing intervals).
+Overly frequent reporting of the same condition to the same recipient is discouraged (e.g., no more than twice in a row). For example, when CDS and CDNSKEY records are inconsistent and prevent DS initialization, the registrant may be notified twice. Additional notifications may be sent with some back-off mechanism (in increasing intervals).
 
-The current DS configuration SHOULD be made accessible to the registrant (or their designated party) through the customer portal available for domain management. Ideally, the history of DS updates would also be available. However, due to the associated state requirements and the lack of direct operational impact, implementation of this is OPTIONAL.
+The registrant (or their designated party) should be able to retrieve the current DS configuration through the customer portal available for domain management. Ideally, the history of DS updates would also be available. However, due to the associated state requirements and the lack of direct operational impact, implementation of this is optional.
 
 
 # Registration Locks {#locks}
@@ -346,7 +345,7 @@ Similarly, when the registrar is known to not support DNSSEC (or to lack a DS pr
 
 When an out-of-band (e.g., manual) DS update is performed while CDS/CDNSKEY records referencing the previous DS RRset's keys are present, the delegation's DS records may be reset to their previous state at the next run of the automation process. This section discusses in which situations it is appropriate to suspend DS automation after such a non-automatic update.
 
-One option is to suspend DS automation after a manual DS update, but only until a resumption signal is observed. In the past, it was proposed that seeing an updated SOA serial in the child zone may serve as a resumption signal. However, as any arbitrary modification of zone contents — including the regular updating of DNSSEC signature validity timestamps  — typically causes a change in SOA serial, resumption of DS automation after a serial change comes with a high risk of surprise. Additional issues arise if nameservers have different serial offsets (e.g., in a multi-provider setup). It is therefore advised to not follow this practice.
+One option is to suspend DS automation after a manual DS update, but only until a resumption signal is observed. In the past, it was proposed that seeing an updated SOA serial in the child zone may serve as a resumption signal. However, as any arbitrary modification of zone contents — including the regular updating of DNSSEC signature validity timestamps — typically causes a change in SOA serial, resumption of DS automation after a serial change comes with a high risk of surprise. Additional issues arise if nameservers have different serial offsets (e.g., in a multi-provider setup). It is therefore advised to not follow this practice.
 
 Note also that "automatic rollback" due to old CDS/CDNSKEY RRsets can only occur if they are signed with a key authorized by one of new DS records. Acceptance checks described in {{acceptance}} further ensure that updates do not break validation.
 
