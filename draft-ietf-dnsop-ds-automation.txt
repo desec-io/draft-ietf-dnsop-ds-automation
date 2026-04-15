@@ -976,9 +976,9 @@ A.1.  Acceptance Checks and Safety Measures
        occasion (but not before the previous DS RRset's TTL has
        expired).
 
-   3.  DNS operators SHOULD publish both CDNSKEY records as well as CDS
-       records, and follow best practice for the choice of hash digest
-       type [DS-IANA].
+   3.  DNS operators SHOULD publish both CDNSKEY and CDS records, and
+       follow best practice for the choice of hash digest type
+       [DS-IANA].
 
 A.2.  Reporting and Transparency
 
