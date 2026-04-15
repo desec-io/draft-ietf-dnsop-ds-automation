@@ -109,6 +109,10 @@ RRR Model:
 
 Deployments of DS automation SHOULD follow the recommendations set out in this document, both to achieve a more uniform treatment across suffixes — minimizing user surprise — and to prevent disruption of DNS and DNSSEC functionality. The recommendations are intended to provide baseline safety and uniformity of behavior across parents.
 
+Recommendations given in this document are optimized as to maximize interoperability and safety. In certain cases, local policy may take precedence, such as when a registry is subjected to national cryptographic policy requirements.
+However, not following any requirements designated with the "SHOULD" key word will generally lead to undesirable effects of ambiguity and interoperability issues.
+When implementing these recommendations, operators have to carefully weigh whether any particular deviation is justified in their particular context.
+
 Registries with additional requirements on DS update checks MAY implement any additional checks in line with local policy.
 
 # Acceptance Checks and Safety Measures {#acceptance}
