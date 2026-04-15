@@ -868,10 +868,6 @@ Table of Contents
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
 
-   [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
-              STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
-              <https://www.rfc-editor.org/rfc/rfc5730>.
-
    [RFC7344]  Kumari, W., Gudmundsson, O., and G. Barwood, "Automating
               DNSSEC Delegation Trust Maintenance", RFC 7344,
               DOI 10.17487/RFC7344, September 2014,
@@ -908,11 +904,6 @@ Table of Contents
               Operator", RFC 9615, DOI 10.17487/RFC9615, July 2024,
               <https://www.rfc-editor.org/rfc/rfc9615>.
 
-   [RFC9803]  Brown, G., "Extensible Provisioning Protocol (EPP) Mapping
-              for DNS Time-to-Live (TTL) Values", RFC 9803,
-              DOI 10.17487/RFC9803, June 2025,
-              <https://www.rfc-editor.org/rfc/rfc9803>.
-
    [RFC9859]  Stenstam, J., Thomassen, P., and J. Levine, "Generalized
               DNS Notifications", RFC 9859, DOI 10.17487/RFC9859,
               September 2025, <https://www.rfc-editor.org/rfc/rfc9859>.
@@ -923,6 +914,10 @@ Table of Contents
               OARC 41, 6 September 2023, <https://indico.dns-
               oarc.net/event/47/contributions/1010/attachments/958/1811/
               DS%20and%20DNSKEY%20TTL%20experiment.pdf>.
+
+   [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
+              STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009,
+              <https://www.rfc-editor.org/rfc/rfc5730>.
 
    [RFC5731]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)
               Domain Name Mapping", STD 69, RFC 5731,
@@ -938,6 +933,11 @@ Table of Contents
               Implementation Notes for DNS Security (DNSSEC)", RFC 6840,
               DOI 10.17487/RFC6840, February 2013,
               <https://www.rfc-editor.org/rfc/rfc6840>.
+
+   [RFC9803]  Brown, G., "Extensible Provisioning Protocol (EPP) Mapping
+              for DNS Time-to-Live (TTL) Values", RFC 9803,
+              DOI 10.17487/RFC9803, June 2025,
+              <https://www.rfc-editor.org/rfc/rfc9803>.
 
    [SAC126]   (SSAC), I. S. and S. A. C., "SAC126: DNSSEC Delegation
               Signer (DS) Record Automation", 12 August 2024,
