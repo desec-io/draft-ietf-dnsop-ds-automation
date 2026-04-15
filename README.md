@@ -2,12 +2,12 @@
 
 # Best Practice Recommendations for DS Automation
 
-This is the working area for the individual Internet-Draft, "Best Practice Recommendations for DS Automation".
+This is the working area for the IETF DNSOP Internet-Draft, "Best Practice Recommendations for DS Automation".
 
-* [Editor's Copy](https://desec-io.github.io/draft-shetho-dnsop-ds-automation/#go.draft-shetho-dnsop-ds-automation.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-shetho-dnsop-ds-automation)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-shetho-dnsop-ds-automation)
-* [Compare Editor's Copy to Individual Draft](https://desec-io.github.io/draft-shetho-dnsop-ds-automation/#go.draft-shetho-dnsop-ds-automation.diff)
+* [Editor's Copy](https://desec-io.github.io/draft-ietf-dnsop-ds-automation/#go.draft-ietf-dnsop-ds-automation.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-dnsop-ds-automation)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-ds-automation)
+* [Compare Editor's Copy to Individual Draft](https://desec-io.github.io/draft-ietf-dnsop-ds-automation/#go.draft-ietf-dnsop-ds-automation.diff)
 
 
 ## Contributing
