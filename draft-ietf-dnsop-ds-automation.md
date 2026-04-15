@@ -81,14 +81,7 @@ Readers are expected to be familiar with DNSSEC {{!RFC9364}}{{!RFC9615}}{{!RFC98
 
 # Terminology
 
-This document uses terminology defined in {{Section 1.1 of !RFC7344}}, in particular:
-
-* Child
-* Parent
-* Child DNS Operator
-* Parental Agent
-
-Also, the document uses terms defined in {{!RFC9499}}, in particular:
+The term Parental Agent is used as defined in {{Section 1.1 of !RFC7344}}. The document also uses terms defined in {{!RFC9499}}, in particular:
 
 * DNS operator
 * Registry
@@ -112,9 +105,9 @@ Parent (DNS operator):
 RRR Model:
 : The registrant-registrar-registry (RRR) interaction framework, where registrants interact with a registrar to register and manage domain names, and registrars interact with the domain's registry for the provision and management of domain names on the registrant's behalf. This model is common amongst TLDs.
 
-# Recommendations for New Deployments of DS Automation
+# Recommendations for Deployments of DS Automation
 
-New deployments of DS automation SHOULD follow the recommendations set out in this document, both to achieve a more uniform treatment across suffixes — minimizing user surprise — and to prevent disruption of DNS and DNSSEC functionality. The recommendations are intended to provide baseline safety and uniformity of behavior across parents.
+Deployments of DS automation SHOULD follow the recommendations set out in this document, both to achieve a more uniform treatment across suffixes — minimizing user surprise — and to prevent disruption of DNS and DNSSEC functionality. The recommendations are intended to provide baseline safety and uniformity of behavior across parents.
 
 Registries with additional requirements on DS update checks MAY implement any additional checks in line with local policy.
 
@@ -168,7 +161,7 @@ The existing DS record set MUST NOT be altered or removed as a result of such ch
 
 To further reduce the impact of any misconfigured DS record set — be it from automated or from manual provisioning — the option to quickly roll back the delegation's DNSSEC parameters is of great importance. This is achieved by setting a comparatively low TTL on the DS record set in the parent domain, at the cost of reduced resiliency against nameserver unreachability due to the earlier expiration of cached records. The availability risk can be mitigated by limiting such TTLs to a brief time period after a change to the DS configuration, during which rollbacks are most likely to occur.
 
-Registries therefore should significantly lower the DS RRset's TTL for some time following an update. Pragmatic values for the reduced TTL value range between 5–15 minutes.  Such low TTLs might be expected to cause increased load on the corresponding authoritative nameservers; however, recent measurements has demonstrated them to have negligible impact on the overall load of a registry's authoritative nameserver infrastructure {{LowTTL}}.
+Registries therefore should significantly lower the DS RRset's TTL for some time following an update. Pragmatic values for the reduced TTL value range between 5–15 minutes.  Such low TTLs might be expected to cause increased load on the corresponding authoritative nameservers; however, recent measurements have demonstrated them to have negligible impact on the overall load of a registry's authoritative nameserver infrastructure {{LowTTL}}.
 
 The reduction should be in effect at least for a couple of days and until the previous DS record set has expired from caches, that is, the period during which the low-TTL is applied typically will significantly exceed the normal TTL value. When using Extensible Provisioning Protocol (EPP) {{!RFC5730}}, the server MAY advertise its TTL policy via the domain `<info>` command described in {{Section 2.1.1.2 of !RFC9803}}.
 
@@ -397,7 +390,7 @@ This document has no IANA actions.
 
 # Operational Considerations
 
-The document provides operational recommendations for DNSSEC DS automation. There no additional operational beyond those listed in {{recommendations_overview}}.
+The document provides operational recommendations for DNSSEC DS automation. There are no additional operational considerations beyond those listed in {{recommendations_overview}}.
 
 # Security Considerations
 
@@ -408,13 +401,13 @@ This document considers security aspects throughout, and has no separate conside
 
 The authors would like to thank the SSAC members who wrote the {{SAC126}} report on which this document is based.
 
-In order of first contribution or review: Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque, Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker
+In order of first contribution or review: Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker, Mohamed Boucadair (Area Director)
 
 --- back
 
 # Recommendations Overview {#recommendations_overview}
 
-For ease of review and referrencing, the recommendations from this document are reproduced here without further comment. For background and analysis, refer to Sections {{<acceptance}}–{{<multiple}}.
+For ease of review and referencing, the recommendations from this document are reproduced here without further comment. For background and analysis, refer to Sections {{<acceptance}}–{{<multiple}}.
 
 ## Acceptance Checks and Safety Measures
 
