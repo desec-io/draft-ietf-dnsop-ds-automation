@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-14T02:51:20.947349+00:00",
+  "timestamp": "2026-04-16T02:55:58.946821+00:00",
   "repo": "desec-io/draft-ietf-dnsop-ds-automation",
   "labels": [
     {
@@ -49,7 +49,91 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 3,
+      "id": "I_kwDONCQOHM7-d5iN",
+      "title": "(AD Review) Normative Language Check through the document",
+      "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/issues/3",
+      "state": "OPEN",
+      "author": "boucadair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The document includes many SHOULD/SHOULD NOT/RECOMMENDED that don't adhere to the guidance at: https://datatracker.ietf.org/doc/statement-iesg-statement-on-clarifying-the-use-of-bcp-14-key-words/ (search for \"On the use of \u201cSHOULD\u201d and \u201cRECOMMENDED\u201d\", in particular).\n\nPlease review all occurences and provide an explanation of the effects of not following a reco among the lines:\n\n\"\u201cSHOULD do X because if you don\u2019t, you get Y, which is less preferable because Z\u201d.\"\n\n",
+      "createdAt": "2026-04-15T13:26:35Z",
+      "updatedAt": "2026-04-15T14:23:00Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "body": "I'm not sure. The document's recommendations are, after all, recommendations, and SHOULD (= RECOMMENDED) appears very appropriate for that. The IESG statement says that it \"improves the document to provide readers with all of the details they need to make an informed decision\".\n\nIn fact, all the details are provided in the analysis / rationale sections, so readers can actually make a very informed deviating decision based on what's in the document. This particularly applies to registries, who have quite some leeway regarding their local policies.\n\nThe recommendation context just isn't in the same sentence as each SHOULD, but that is not required and would also make the document significantly harder to read.\n\nIt also seemed to be the view of DNSOP participants, including (earlier) ADs (Warren, Paul W) that this is a fine use of the keyword. I'd thus suggest considering this addressed.",
+          "createdAt": "2026-04-15T13:44:21Z",
+          "updatedAt": "2026-04-15T13:44:21Z"
+        },
+        {
+          "author": "boucadair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> It also seemed to be the view of DNSOP participants, including (earlier) ADs (Warren, Paul W) that this is a fine use of the keyword. I'd thus suggest considering this addressed.\n\nI'm afraid this will be problematic as there are many blocking DISCUSSes these days on this specific point.\n\nI see two options:\n\n* Either have one statement early in the document to explain the reasoning and that for all SHOULD/RECO: not following the reco will lead to ambiguity, interop issues, etc. Make that statement clear right afte the blob about normative language.\n \n* Handle it one by one\n\nPlease pick one option. Thanks.",
+          "createdAt": "2026-04-15T14:08:06Z",
+          "updatedAt": "2026-04-15T14:08:06Z"
+        },
+        {
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "body": "> have one statement early in the document to explain the reasoning and that for all SHOULD/RECO: not following the reco will lead to ambiguity, interop issues, etc. Make that statement clear right afte the blob about normative language.\n\nWill do.",
+          "createdAt": "2026-04-15T14:09:32Z",
+          "updatedAt": "2026-04-15T14:09:32Z"
+        },
+        {
+          "author": "boucadair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks Peter.",
+          "createdAt": "2026-04-15T14:23:00Z",
+          "updatedAt": "2026-04-15T14:23:00Z"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "I_kwDONCQOHM7-d82d",
+      "title": "(AD Review) Embedded reco in the analysis part",
+      "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/issues/4",
+      "state": "CLOSED",
+      "author": "boucadair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "There are several recommendations that are provided in the discussion part, while I was expecting those to be part of the guidance.\n\nNot sure how to interpret those.\n\nShould those be moved oustide of the analysis section? Avoid using noramtive language in the analysis section?",
+      "createdAt": "2026-04-15T13:28:49Z",
+      "updatedAt": "2026-04-15T15:25:39Z",
+      "closedAt": "2026-04-15T15:25:39Z",
+      "comments": [
+        {
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "body": "Those normative statements in the analysis sections are not additional ones, but flow directly from the actual recommendations in the rec sections.\n\nFor example, when the recommendation says you SHOULD be doing some check, then the rationale says \"this thing may happen and preventing it is a good thing, so you SHOULD be doing this check; you MAY of course do other things in addition but in any case you MUST NOT proceed if the situation doesn't make sense\". Those are not meant as additional requirements. I'd be completely fine lowercasing them (to simply make them part of the argument flow), except that I can foresee COMMENTs that this keywords have to be uppercase (which I disagree with, because not every use of the word \"may\" necessarily is normative, for example). -- Would you be ok with that?\n\nAs these instances are really part of the rationale, I'd strongly prefer to not move them elsewhere.",
+          "createdAt": "2026-04-15T14:31:31Z",
+          "updatedAt": "2026-04-15T14:31:31Z"
+        },
+        {
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "body": "The requirements notation actually says that keywords should be interpreted normatively \"when, and only when, they appear in all capitals\" -- in other words, lowercasing them is admissible and also meaningful (just not normative). So I think we should do that. Agree?",
+          "createdAt": "2026-04-15T14:34:56Z",
+          "updatedAt": "2026-04-15T14:34:56Z"
+        },
+        {
+          "author": "boucadair",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The initial concern I had is that if one \"consumes\" the set of reco listed in \"Recommendations Overview\", it won't be exposed the detailed items under analsysis (that are not mirrored in the main reco).\n\n> The requirements notation actually says that keywords should be interpreted normatively \"when, and only when, they appear in all capitals\" -- in other words, lowercasing them is admissible and also meaningful (just not normative). So I think we should do that. Agree?\n\nFollowing this in the analysis sections works for me.",
+          "createdAt": "2026-04-15T14:38:22Z",
+          "updatedAt": "2026-04-15T14:38:22Z"
+        }
+      ]
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -86,6 +170,350 @@
         }
       ],
       "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDONCQOHM7Spqrk",
+      "title": "First AD Review round",
+      "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/pull/2",
+      "state": "MERGED",
+      "author": "boucadair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "* Further insist this is a BCP with OPS focus\r\n* Build on existing docs for the terminology\r\n* Flow check\r\n* edits to enhance readability\r\n* Normative reference checks",
+      "createdAt": "2026-04-15T13:21:11Z",
+      "updatedAt": "2026-04-15T19:39:23Z",
+      "baseRepository": "desec-io/draft-ietf-dnsop-ds-automation",
+      "baseRefName": "main",
+      "baseRefOid": "231650c18a175ccdf0bd30c23162d05b25eeec97",
+      "headRepository": "boucadair/draft-ietf-dnsop-ds-automation",
+      "headRefName": "patch-1",
+      "headRefOid": "fba42d7abaa37733e4b7ba61e158bd762a30b9ea",
+      "closedAt": "2026-04-15T14:23:23Z",
+      "mergedAt": "2026-04-15T14:23:23Z",
+      "mergedBy": "peterthomassen",
+      "mergeCommit": {
+        "oid": "fba42d7abaa37733e4b7ba61e158bd762a30b9ea"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONCQOHM71OSdP",
+          "commit": {
+            "abbreviatedOid": "fba42d7"
+          },
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "I've corrected a few typos.\n\n\"Parental Agent\" is actually the only term imported from RFC 7344; the others mentions from that RFC were redundant.\n\nYour changes exposed \"new deployments\" in a section title. This was not the case previously, and looks like the recommendations don't apply to existing ones. Of course, they do; it's just that immediate implementation is not required while new deployments should be starting out as described. Anyway, recs apply to either, so I've removed \"new\". It technically makes no differences but reads much better.",
+          "createdAt": "2026-04-15T13:56:08Z",
+          "updatedAt": "2026-04-15T13:56:08Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONCQOHM71OdTO",
+          "commit": {
+            "abbreviatedOid": "fba42d7"
+          },
+          "author": "boucadair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Your fixes look good to me. Thanks Peter.",
+          "createdAt": "2026-04-15T14:01:53Z",
+          "updatedAt": "2026-04-15T14:01:53Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDONCQOHM7Sridx",
+      "title": "20260415 ad review",
+      "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/pull/5",
+      "state": "MERGED",
+      "author": "peterthomassen",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "@boucadair tried to assign you for review but apparently that requires adding you to the team first (sent you an invite)",
+      "createdAt": "2026-04-15T14:58:43Z",
+      "updatedAt": "2026-04-15T15:25:45Z",
+      "baseRepository": "desec-io/draft-ietf-dnsop-ds-automation",
+      "baseRefName": "main",
+      "baseRefOid": "fba42d7abaa37733e4b7ba61e158bd762a30b9ea",
+      "headRepository": "desec-io/draft-ietf-dnsop-ds-automation",
+      "headRefName": "20260415_ad-review",
+      "headRefOid": "d3ce884c3afecea3f599d0e42efd7c749e91419d",
+      "closedAt": "2026-04-15T15:25:39Z",
+      "mergedAt": "2026-04-15T15:25:39Z",
+      "mergedBy": "peterthomassen",
+      "mergeCommit": {
+        "oid": "d3ce884c3afecea3f599d0e42efd7c749e91419d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONCQOHM71QLob",
+          "commit": {
+            "abbreviatedOid": "df45fcb"
+          },
+          "author": "boucadair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "Looks good, except one check on noramative ref.",
+          "createdAt": "2026-04-15T15:03:44Z",
+          "updatedAt": "2026-04-15T15:05:13Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "Now that we don't use the normative language MAY, please check that we still need {{!RFC5730}}/!RFC9803 to be Normative. ",
+              "createdAt": "2026-04-15T15:03:44Z",
+              "updatedAt": "2026-04-15T15:05:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONCQOHM71QuR5",
+          "commit": {
+            "abbreviatedOid": "df45fcb"
+          },
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-15T15:25:17Z",
+          "updatedAt": "2026-04-15T15:25:17Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "Good catch! 4 brain hemispheres see more than 2 :)\r\n\r\nFixed, will squash, push, merge. Thanks.",
+              "createdAt": "2026-04-15T15:25:17Z",
+              "updatedAt": "2026-04-15T15:25:17Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDONCQOHM7SsEXf",
+      "title": "fix readme for rendering",
+      "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/pull/6",
+      "state": "MERGED",
+      "author": "boucadair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-04-15T15:28:19Z",
+      "updatedAt": "2026-04-15T15:32:42Z",
+      "baseRepository": "desec-io/draft-ietf-dnsop-ds-automation",
+      "baseRefName": "main",
+      "baseRefOid": "d3ce884c3afecea3f599d0e42efd7c749e91419d",
+      "headRepository": "desec-io/draft-ietf-dnsop-ds-automation",
+      "headRefName": "boucadair-patch-1",
+      "headRefOid": "3a9873069628c2b864c1bae114ed0de9443faf9a",
+      "closedAt": "2026-04-15T15:32:38Z",
+      "mergedAt": "2026-04-15T15:32:38Z",
+      "mergedBy": "peterthomassen",
+      "mergeCommit": {
+        "oid": "e3ba2d70a45491daec1aad3ebee1e60da6f76c4f"
+      },
+      "comments": [
+        {
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "body": "Thanks for being proactive.",
+          "createdAt": "2026-04-15T15:32:34Z",
+          "updatedAt": "2026-04-15T15:32:34Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDONCQOHM71Q5cd",
+          "commit": {
+            "abbreviatedOid": "3a98730"
+          },
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-15T15:32:28Z",
+          "updatedAt": "2026-04-15T15:32:28Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDONCQOHM7SsRHe",
+      "title": "nit: align the reco appendix with the reco in main body",
+      "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/pull/7",
+      "state": "MERGED",
+      "author": "boucadair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-04-15T15:39:48Z",
+      "updatedAt": "2026-04-15T15:42:43Z",
+      "baseRepository": "desec-io/draft-ietf-dnsop-ds-automation",
+      "baseRefName": "main",
+      "baseRefOid": "e3ba2d70a45491daec1aad3ebee1e60da6f76c4f",
+      "headRepository": "desec-io/draft-ietf-dnsop-ds-automation",
+      "headRefName": "boucadair-patch-1",
+      "headRefOid": "7b3118f70a3af50b116ceba73e6dadf5c602e1ce",
+      "closedAt": "2026-04-15T15:42:40Z",
+      "mergedAt": "2026-04-15T15:42:40Z",
+      "mergedBy": "peterthomassen",
+      "mergeCommit": {
+        "oid": "ac847481d1935ed717955b01e2e840740227545b"
+      },
+      "comments": [
+        {
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "body": ":see_no_evil: ",
+          "createdAt": "2026-04-15T15:42:33Z",
+          "updatedAt": "2026-04-15T15:42:33Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDONCQOHM71RJc4",
+          "commit": {
+            "abbreviatedOid": "7b3118f"
+          },
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-15T15:42:23Z",
+          "updatedAt": "2026-04-15T15:42:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDONCQOHM7SsziF",
+      "title": "Editorial fixes",
+      "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/pull/8",
+      "state": "OPEN",
+      "author": "peterthomassen",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-04-15T16:12:11Z",
+      "updatedAt": "2026-04-15T19:50:51Z",
+      "baseRepository": "desec-io/draft-ietf-dnsop-ds-automation",
+      "baseRefName": "main",
+      "baseRefOid": "ac847481d1935ed717955b01e2e840740227545b",
+      "headRepository": "desec-io/draft-ietf-dnsop-ds-automation",
+      "headRefName": "20260415-should",
+      "headRefOid": "909d80f31cfbe24f9c13f9318a4573f8c4116895",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONCQOHM71R7SA",
+          "commit": {
+            "abbreviatedOid": "ffac7b6"
+          },
+          "author": "boucadair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-15T16:15:37Z",
+          "updatedAt": "2026-04-15T16:15:37Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\nWhen implementing these recommendations, operators have to carefully weigh whether any particular deviation is justified in their particular context.\n```",
+              "createdAt": "2026-04-15T16:15:37Z",
+              "updatedAt": "2026-04-15T16:15:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONCQOHM71R8KM",
+          "commit": {
+            "abbreviatedOid": "ffac7b6"
+          },
+          "author": "boucadair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2026-04-15T16:16:16Z",
+          "updatedAt": "2026-04-15T16:16:16Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONCQOHM71UyNY",
+          "commit": {
+            "abbreviatedOid": "ffac7b6"
+          },
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-15T18:14:45Z",
+          "updatedAt": "2026-04-15T18:14:46Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Applied your change.\r\n\r\nAlso, added another commit in response to a clarification request from Oli Schacher (Switch/.CH, encountered during implementation in March).",
+              "createdAt": "2026-04-15T18:14:46Z",
+              "updatedAt": "2026-04-15T18:14:46Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONCQOHM71WFXy",
+          "commit": {
+            "abbreviatedOid": "f331e85"
+          },
+          "author": "boucadair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-15T19:14:53Z",
+          "updatedAt": "2026-04-15T19:15:08Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "```suggestion\nIf both RRsets are published, Parents are expected to verify consistency between them by verifying that they refer to the same set of keys {{!I-D.ietf-dnsop-cds-consistency}}. The CDS digest field needs only be verified when the hash digest algorithm is designated as \"MUST\" in the \"Implement for DNSSEC Delegation\" column of the \"Domain Name System Security (DNSSEC) Algorithm Numbers\" registry group {{DS-IANA}}, and may otherwise be ignored when the digest type is unsupported.\n```",
+              "createdAt": "2026-04-15T19:14:53Z",
+              "updatedAt": "2026-04-15T19:15:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONCQOHM71W08P",
+          "commit": {
+            "abbreviatedOid": "f331e85"
+          },
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-04-15T19:50:50Z",
+          "updatedAt": "2026-04-15T19:50:51Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "\"need\" does not need an \"s\" here, see https://painintheenglish.com/case/4148\r\n\r\nAs we're referring to a column, we should name the registry, not the registry group. The registry is just called \"Digest Algorithms\"; I've decided to keep it at that for readability and not name the overarching group. The reference makes it clear anyway.\r\n\r\nPls let me know if this works for your and I'll merge. thx!",
+              "createdAt": "2026-04-15T19:50:50Z",
+              "updatedAt": "2026-04-15T19:50:51Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
