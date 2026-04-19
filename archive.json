@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-16T02:55:58.946821+00:00",
+  "timestamp": "2026-04-19T03:17:12.966394+00:00",
   "repo": "desec-io/draft-ietf-dnsop-ds-automation",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDONCQOHM7-d5iN",
       "title": "(AD Review) Normative Language Check through the document",
       "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/issues/3",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "boucadair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "The document includes many SHOULD/SHOULD NOT/RECOMMENDED that don't adhere to the guidance at: https://datatracker.ietf.org/doc/statement-iesg-statement-on-clarifying-the-use-of-bcp-14-key-words/ (search for \"On the use of \u201cSHOULD\u201d and \u201cRECOMMENDED\u201d\", in particular).\n\nPlease review all occurences and provide an explanation of the effects of not following a reco among the lines:\n\n\"\u201cSHOULD do X because if you don\u2019t, you get Y, which is less preferable because Z\u201d.\"\n\n",
       "createdAt": "2026-04-15T13:26:35Z",
-      "updatedAt": "2026-04-15T14:23:00Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-16T22:18:31Z",
+      "closedAt": "2026-04-16T22:18:30Z",
       "comments": [
         {
           "author": "peterthomassen",
@@ -400,25 +400,42 @@
       "id": "PR_kwDONCQOHM7SsziF",
       "title": "Editorial fixes",
       "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "peterthomassen",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-04-15T16:12:11Z",
-      "updatedAt": "2026-04-15T19:50:51Z",
+      "updatedAt": "2026-04-16T22:19:54Z",
       "baseRepository": "desec-io/draft-ietf-dnsop-ds-automation",
       "baseRefName": "main",
       "baseRefOid": "ac847481d1935ed717955b01e2e840740227545b",
       "headRepository": "desec-io/draft-ietf-dnsop-ds-automation",
       "headRefName": "20260415-should",
-      "headRefOid": "909d80f31cfbe24f9c13f9318a4573f8c4116895",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "headRefOid": "ccde3ca2941840ebd051e50f015997f54a933199",
+      "closedAt": "2026-04-16T22:18:31Z",
+      "mergedAt": "2026-04-16T22:18:31Z",
+      "mergedBy": "peterthomassen",
+      "mergeCommit": {
+        "oid": "ccde3ca2941840ebd051e50f015997f54a933199"
+      },
+      "comments": [
+        {
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "body": "@boucadair I am not sure whether my reply in the inline conversation caused a notification, so allow me to ping you again :)",
+          "createdAt": "2026-04-16T16:32:25Z",
+          "updatedAt": "2026-04-16T16:32:25Z"
+        },
+        {
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "body": "Thanks. The force-push was only for squashing; no changes in HEAD content.",
+          "createdAt": "2026-04-16T22:19:54Z",
+          "updatedAt": "2026-04-16T22:19:54Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDONCQOHM71R7SA",
@@ -512,6 +529,19 @@
               "updatedAt": "2026-04-15T19:50:51Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDONCQOHM71vDyc",
+          "commit": {
+            "abbreviatedOid": "ccde3ca"
+          },
+          "author": "boucadair",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-04-16T16:47:18Z",
+          "updatedAt": "2026-04-16T22:18:17Z",
+          "comments": []
         }
       ]
     }
