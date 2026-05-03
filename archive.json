@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-19T03:17:12.966394+00:00",
+  "timestamp": "2026-05-03T03:34:18.061794+00:00",
   "repo": "desec-io/draft-ietf-dnsop-ds-automation",
   "labels": [
     {
@@ -132,6 +132,22 @@
           "updatedAt": "2026-04-15T14:38:22Z"
         }
       ]
+    },
+    {
+      "number": 9,
+      "id": "I_kwDONCQOHM8AAAABBF8hvw",
+      "title": "(IESTF Last Call)  Meir Goldman Review",
+      "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/issues/9",
+      "state": "OPEN",
+      "author": "boucadair",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "https://mailarchive.ietf.org/arch/msg/last-call/6Hx3iqm3LoWdfh4QOv1OvmAGHbc/:\n\n\n> \"I support the direction of draft-ietf-dnsop-ds-automation. One operational gap worth tightening is audit continuity for automated DS decisions.\n> The draft already recommends acceptance checks, cancellation when checks fail, notifications, and optional exposure of DS update history through customer portals. For operational safety, I suggest adding a short recommendation that parental agents retain structured decision records for automated DS maintenance, including failed or cancelled requests.\n> \n> Suggested addition to Section 5.1 or Section 9:\n> \n> Entities performing automated DS maintenance SHOULD retain structured records of DS automation decisions for a locally defined retention period. Records SHOULD include the child zone, triggering CDS/CDNSKEY RRsets or notification channel, authoritative nameserver set consulted, verification results, decision outcome, applied DS RRset or cancellation reason, timestamp, and the responsible parental agent. These records are intended to support troubleshooting, dispute resolution, and post-incident analysis, and need not be made publicly available.\n> \n> Rationale:\n> \n> Automated DS processing can affect DNSSEC validation and domain reachability. Operators need a reliable way to reconstruct why an automated DS change was accepted, rejected, cancelled, or rolled back. This also helps distinguish child-side publication problems, parental-agent acceptance-check failures, concurrent update conflicts, and operational errors.\"\n> ",
+      "createdAt": "2026-05-02T07:27:47Z",
+      "updatedAt": "2026-05-02T07:27:47Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
