@@ -1344,9 +1344,9 @@ appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">�
           <p id="section-2-4.6.1">DNS zone that holds a delegation for a Child zone.<a href="#section-2-4.6.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-4.7">Parent (DNS operator):</dt>
+<dt id="section-2-4.7">Parent:</dt>
         <dd style="margin-left: 1.5em" id="section-2-4.8">
-          <p id="section-2-4.8.1">The DNS operator responsible for a Parent zone and, thus, involved with the maintenance of the delegation's DNSSEC parameters (in particular, the acceptance of these parameters and the publication of corresponding DS records).<a href="#section-2-4.8.1" class="pilcrow">¶</a></p>
+          <p id="section-2-4.8.1">The operator responsible for a Parent zone and, thus, involved with the maintenance of the delegation's DNSSEC parameters (in particular, the acceptance of these parameters and the publication of corresponding DS records).<a href="#section-2-4.8.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-2-4.9">RRR Model:</dt>
@@ -1512,7 +1512,7 @@ Any failures — such as a missing DNSKEY due to improper rollover timing (<span
             <p id="section-5.1-1.2.1">For error conditions, the child DNS operator and the domain's technical contact (if applicable) SHOULD be notified first. The registrant SHOULD NOT be notified unless the problem persists for a prolonged amount of time (e.g., three days).<a href="#section-5.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-5.1-1.3">
-            <p id="section-5.1-1.3.1">Child DNS operators SHOULD be notified using a report query <span>[<a href="#RFC9567" class="cite xref">RFC9567</a>]</span> to the agent domain as described in <span><a href="https://rfc-editor.org/rfc/rfc9859#section-4" class="relref">Section 4</a> of [<a href="#RFC9859" class="cite xref">RFC9859</a>]</span>. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.<a href="#section-5.1-1.3.1" class="pilcrow">¶</a></p>
+            <p id="section-5.1-1.3.1">Child DNS operators SHOULD be notified of errors using a report query <span>[<a href="#RFC9567" class="cite xref">RFC9567</a>]</span> to the agent domain as described in <span><a href="https://rfc-editor.org/rfc/rfc9859#section-4" class="relref">Section 4</a> of [<a href="#RFC9859" class="cite xref">RFC9859</a>]</span>. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.<a href="#section-5.1-1.3.1" class="pilcrow">¶</a></p>
 </li>
           <li id="section-5.1-1.4">
             <p id="section-5.1-1.4.1">In the RRR model, registries performing DS automation SHOULD inform the registrar of any DS record changes via the EPP Change Poll Extension <span>[<a href="#RFC8590" class="cite xref">RFC8590</a>]</span> or a similar channel.<a href="#section-5.1-1.4.1" class="pilcrow">¶</a></p>
@@ -1528,7 +1528,7 @@ Any failures — such as a missing DNSKEY due to improper rollover timing (<span
         <h3 id="name-analysis-2">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-analysis-2" class="section-name selfRef">Analysis</a>
         </h3>
-<p id="section-5.2-1">When accepting or rejecting a DS update, it cannot be assumed that relevant parties are aware of what's happening. For example, a registrar may not know when an automatic DS update is performed by the registry. Similarly, a Child DNS operator may not be aware when their CDS/CDNSKEY RRsets are out of sync across nameservers, thus being ignored.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">When accepting or rejecting a DS update, it cannot be assumed that relevant parties are aware of what's happening. For example, a registrar may not know when an automatic DS update is performed by the registry. Similarly, a Child DNS operator may not be aware when their CDS/CDNSKEY RRsets are out of sync across nameservers, causing them to be ignored.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.2-2">To help involved parties act appropriately and in a timely manner, entities performing automated DS maintenance should report on conditions they encounter. The following success situations may be of particular interest:<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-5.2-3">
 <li id="section-5.2-3.1">
@@ -1588,7 +1588,7 @@ Any failures — such as a missing DNSKEY due to improper rollover timing (<span
 </div>
         </li>
 </ol>
-<p id="section-5.2-6">For these reportworthy cases, the entity performing DS automation would be justified to attempt communicating the situation. Potential recipients are:<a href="#section-5.2-6" class="pilcrow">¶</a></p>
+<p id="section-5.2-6">In these latter two cases, the entity performing DS automation would be justified to attempt communicating the situation. Potential recipients are:<a href="#section-5.2-6" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.2-7.1">
             <p id="section-5.2-7.1.1">Child DNS operator, preferably by making a report query <span>[<a href="#RFC9567" class="cite xref">RFC9567</a>]</span> to the agent domain listed in the EDNS0 Report-Channel option of the DS update notification that triggered the DS update (<span>[<a href="#RFC9859" class="cite xref">RFC9859</a>], <a href="https://rfc-editor.org/rfc/rfc9859#section-4" class="relref">Section 4</a></span>), or else via email to the address contained in the child zone's SOA RNAME field (see Sections <a href="https://rfc-editor.org/rfc/rfc1035#section-3.3.13" class="relref">3.3.13</a> and <a href="https://rfc-editor.org/rfc/rfc1035#section-8" class="relref">8</a> of <span>[<a href="#RFC1035" class="cite xref">RFC1035</a>]</span>);<a href="#section-5.2-7.1.1" class="pilcrow">¶</a></p>
@@ -1995,7 +1995,7 @@ and cancel the update if the verifications do not succeed.<a href="#appendix-A.1
             <p id="appendix-A.2-1.2.1">For error conditions, the child DNS operator and the domain's technical contact (if applicable) SHOULD be notified first. The registrant SHOULD NOT be notified unless the problem persists for a prolonged amount of time (e.g., three days).<a href="#appendix-A.2-1.2.1" class="pilcrow">¶</a></p>
 </li>
           <li id="appendix-A.2-1.3">
-            <p id="appendix-A.2-1.3.1">Child DNS operators SHOULD be notified using a report query <span>[<a href="#RFC9567" class="cite xref">RFC9567</a>]</span> to the agent domain as described in <span><a href="https://rfc-editor.org/rfc/rfc9859#section-4" class="relref">Section 4</a> of [<a href="#RFC9859" class="cite xref">RFC9859</a>]</span>. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.<a href="#appendix-A.2-1.3.1" class="pilcrow">¶</a></p>
+            <p id="appendix-A.2-1.3.1">Child DNS operators SHOULD be notified of errors using a report query <span>[<a href="#RFC9567" class="cite xref">RFC9567</a>]</span> to the agent domain as described in <span><a href="https://rfc-editor.org/rfc/rfc9859#section-4" class="relref">Section 4</a> of [<a href="#RFC9859" class="cite xref">RFC9859</a>]</span>. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.<a href="#appendix-A.2-1.3.1" class="pilcrow">¶</a></p>
 </li>
           <li id="appendix-A.2-1.4">
             <p id="appendix-A.2-1.4.1">In the RRR model, registries performing DS automation SHOULD inform the registrar of any DS record changes via the EPP Change Poll Extension <span>[<a href="#RFC8590" class="cite xref">RFC8590</a>]</span> or a similar channel.<a href="#appendix-A.2-1.4.1" class="pilcrow">¶</a></p>
@@ -2059,163 +2059,168 @@ and cancel the update if the verifications do not succeed.<a href="#appendix-A.1
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-2.1">
-          <p id="appendix-B-2.1.1">Point out importance of retaining decision details for troubleshooting
-  (IETF LC, Meir Goldman)<a href="#appendix-B-2.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-2.1.1">Editorial changes (IETF LC, Peter van Dijk)<a href="#appendix-B-2.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-3.1">
-          <p id="appendix-B-3.1.1">Editorial changes (IETF LC, Thomas Fossati)<a href="#appendix-B-3.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<ul class="normal">
-<li class="normal" id="appendix-B-4.1">
-          <p id="appendix-B-4.1.1">draft-ietf-dnsop-ds-automation-05<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-3.1.1">Point out importance of retaining decision details for troubleshooting
+  (IETF LC, Meir Goldman)<a href="#appendix-B-3.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-5.1">
-          <p id="appendix-B-5.1.1">Editorial changes from AD Review<a href="#appendix-B-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-4.1">
+          <p id="appendix-B-4.1.1">Editorial changes (IETF LC, Thomas Fossati)<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-6.1">
-          <p id="appendix-B-6.1.1">draft-ietf-dnsop-ds-automation-04<a href="#appendix-B-6.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-5.1">
+          <p id="appendix-B-5.1.1">draft-ietf-dnsop-ds-automation-05<a href="#appendix-B-5.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-7.1">
-          <p id="appendix-B-7.1.1">Editorial changes<a href="#appendix-B-7.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-6.1">
+          <p id="appendix-B-6.1.1">Editorial changes from AD Review<a href="#appendix-B-6.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-8.1">
-          <p id="appendix-B-8.1.1">draft-ietf-dnsop-ds-automation-03<a href="#appendix-B-8.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-7.1">
+          <p id="appendix-B-7.1.1">draft-ietf-dnsop-ds-automation-04<a href="#appendix-B-7.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-9.1">
-          <p id="appendix-B-9.1.1">Editorial changes<a href="#appendix-B-9.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-8.1">
+          <p id="appendix-B-8.1.1">Editorial changes<a href="#appendix-B-8.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-10.1">
-          <p id="appendix-B-10.1.1">draft-ietf-dnsop-ds-automation-02<a href="#appendix-B-10.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-9.1">
+          <p id="appendix-B-9.1.1">draft-ietf-dnsop-ds-automation-03<a href="#appendix-B-9.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-11.1">
-          <p id="appendix-B-11.1.1">Add Appendix with recommendations overview<a href="#appendix-B-11.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-10.1">
+          <p id="appendix-B-10.1.1">Editorial changes<a href="#appendix-B-10.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal">
+<li class="normal" id="appendix-B-11.1">
+          <p id="appendix-B-11.1.1">draft-ietf-dnsop-ds-automation-02<a href="#appendix-B-11.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-12.1">
-          <p id="appendix-B-12.1.1">Editorial changes<a href="#appendix-B-12.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-12.1.1">Add Appendix with recommendations overview<a href="#appendix-B-12.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-13.1">
-          <p id="appendix-B-13.1.1">Change type to BCP<a href="#appendix-B-13.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-13.1.1">Editorial changes<a href="#appendix-B-13.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-14.1">
-          <p id="appendix-B-14.1.1">Fold CDS/CDNSKEY consistency requirements (Section 6) into Section 2 (on acceptance checks)<a href="#appendix-B-14.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-14.1.1">Change type to BCP<a href="#appendix-B-14.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-15.1">
-          <p id="appendix-B-15.1.1">Clarify continuity of validation<a href="#appendix-B-15.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-15.1.1">Fold CDS/CDNSKEY consistency requirements (Section 6) into Section 2 (on acceptance checks)<a href="#appendix-B-15.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-16.1">
-          <p id="appendix-B-16.1.1">In RRR, clarify that registries should not bootstrap if registrar has no deactivation interface (or if registrar does the automation)<a href="#appendix-B-16.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-16.1.1">Clarify continuity of validation<a href="#appendix-B-16.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-17.1">
-          <p id="appendix-B-17.1.1">Remove Appendix C ("Approaches not pursued")<a href="#appendix-B-17.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<ul class="normal">
-<li class="normal" id="appendix-B-18.1">
-          <p id="appendix-B-18.1.1">draft-ietf-dnsop-ds-automation-01<a href="#appendix-B-18.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-17.1.1">In RRR, clarify that registries should not bootstrap if registrar has no deactivation interface (or if registrar does the automation)<a href="#appendix-B-17.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-19.1">
-          <p id="appendix-B-19.1.1">Remove Recommendation 6.1.2 which had told parents to require publication of both CDS and CDNSKEY<a href="#appendix-B-19.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-18.1">
+          <p id="appendix-B-18.1.1">Remove Appendix C ("Approaches not pursued")<a href="#appendix-B-18.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal">
+<li class="normal" id="appendix-B-19.1">
+          <p id="appendix-B-19.1.1">draft-ietf-dnsop-ds-automation-01<a href="#appendix-B-19.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-20.1">
-          <p id="appendix-B-20.1.1">Clarify Recommendation 5.1.3 (on suspension of automation after DS RRset removal) and provide extra analysis<a href="#appendix-B-20.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-20.1.1">Remove Recommendation 6.1.2 which had told parents to require publication of both CDS and CDNSKEY<a href="#appendix-B-20.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-21.1">
-          <p id="appendix-B-21.1.1">Providing access to DS update history is now optional<a href="#appendix-B-21.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-21.1.1">Clarify Recommendation 5.1.3 (on suspension of automation after DS RRset removal) and provide extra analysis<a href="#appendix-B-21.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-22.1">
-          <p id="appendix-B-22.1.1">Humans (domains holders) should be notified according to preferences established with registry/registrar (not necessarily via email)<a href="#appendix-B-22.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-22.1.1">Providing access to DS update history is now optional<a href="#appendix-B-22.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-23.1">
-          <p id="appendix-B-23.1.1">Remove redundant Recommendation 5.1.5 (same as 3.1.4)<a href="#appendix-B-23.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-23.1.1">Humans (domains holders) should be notified according to preferences established with registry/registrar (not necessarily via email)<a href="#appendix-B-23.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-24.1">
-          <p id="appendix-B-24.1.1">Editorial changes<a href="#appendix-B-24.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<ul class="normal">
-<li class="normal" id="appendix-B-25.1">
-          <p id="appendix-B-25.1.1">draft-ietf-dnsop-ds-automation-00<a href="#appendix-B-25.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-24.1.1">Remove redundant Recommendation 5.1.5 (same as 3.1.4)<a href="#appendix-B-24.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-26.1">
-          <p id="appendix-B-26.1.1">Rename after adoption<a href="#appendix-B-26.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-25.1">
+          <p id="appendix-B-25.1.1">Editorial changes<a href="#appendix-B-25.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-27.1">
-          <p id="appendix-B-27.1.1">draft-shetho-dnsop-ds-automation-02<a href="#appendix-B-27.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-26.1">
+          <p id="appendix-B-26.1.1">draft-ietf-dnsop-ds-automation-00<a href="#appendix-B-26.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-28.1">
-          <p id="appendix-B-28.1.1">Allow DS automation during registry update lock<a href="#appendix-B-28.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-27.1">
+          <p id="appendix-B-27.1.1">Rename after adoption<a href="#appendix-B-27.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal">
+<li class="normal" id="appendix-B-28.1">
+          <p id="appendix-B-28.1.1">draft-shetho-dnsop-ds-automation-02<a href="#appendix-B-28.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-29.1">
-          <p id="appendix-B-29.1.1">Editorial changes<a href="#appendix-B-29.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<ul class="normal">
-<li class="normal" id="appendix-B-30.1">
-          <p id="appendix-B-30.1.1">draft-shetho-dnsop-ds-automation-01<a href="#appendix-B-30.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-29.1.1">Allow DS automation during registry update lock<a href="#appendix-B-29.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-31.1">
-          <p id="appendix-B-31.1.1">Incorporated various review feedback (editorial + adding TODOs)<a href="#appendix-B-31.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-30.1">
+          <p id="appendix-B-30.1.1">Editorial changes<a href="#appendix-B-30.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-32.1">
-          <p id="appendix-B-32.1.1">draft-shetho-dnsop-ds-automation-00<a href="#appendix-B-32.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-31.1">
+          <p id="appendix-B-31.1.1">draft-shetho-dnsop-ds-automation-01<a href="#appendix-B-31.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-33.1">
-          <p id="appendix-B-33.1.1">Initial public draft.<a href="#appendix-B-33.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-32.1">
+          <p id="appendix-B-32.1.1">Incorporated various review feedback (editorial + adding TODOs)<a href="#appendix-B-32.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal">
+<li class="normal" id="appendix-B-33.1">
+          <p id="appendix-B-33.1.1">draft-shetho-dnsop-ds-automation-00<a href="#appendix-B-33.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="appendix-B-34.1">
+          <p id="appendix-B-34.1.1">Initial public draft.<a href="#appendix-B-34.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>
