@@ -99,8 +99,8 @@ Child (DNS operator):
 Parent zone:
 : DNS zone that holds a delegation for a Child zone.
 
-Parent (DNS operator):
-: The DNS operator responsible for a Parent zone and, thus, involved with the maintenance of the delegation's DNSSEC parameters (in particular, the acceptance of these parameters and the publication of corresponding DS records).
+Parent:
+: The operator responsible for a Parent zone and, thus, involved with the maintenance of the delegation's DNSSEC parameters (in particular, the acceptance of these parameters and the publication of corresponding DS records).
 
 RRR Model:
 : The registrant-registrar-registry (RRR) interaction framework, where registrants interact with a registrar to register and manage domain names, and registrars interact with the domain's registry for the provision and management of domain names on the registrant's behalf. This model is common amongst TLDs.
@@ -203,7 +203,7 @@ This section provides recommendations to address the following operational quest
 
 2. For error conditions, the child DNS operator and the domain's technical contact (if applicable) SHOULD be notified first. The registrant SHOULD NOT be notified unless the problem persists for a prolonged amount of time (e.g., three days).
 
-3. Child DNS operators SHOULD be notified using a report query {{!RFC9567}} to the agent domain as described in {{Section 4 of !RFC9859}}. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
+3. Child DNS operators SHOULD be notified of errors using a report query {{!RFC9567}} to the agent domain as described in {{Section 4 of !RFC9859}}. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
 
 4. In the RRR model, registries performing DS automation SHOULD inform the registrar of any DS record changes via the EPP Change Poll Extension {{!RFC8590}} or a similar channel.
 
@@ -211,7 +211,7 @@ This section provides recommendations to address the following operational quest
 
 ## Analysis {#analysis_reporting}
 
-When accepting or rejecting a DS update, it cannot be assumed that relevant parties are aware of what's happening. For example, a registrar may not know when an automatic DS update is performed by the registry. Similarly, a Child DNS operator may not be aware when their CDS/CDNSKEY RRsets are out of sync across nameservers, thus being ignored.
+When accepting or rejecting a DS update, it cannot be assumed that relevant parties are aware of what's happening. For example, a registrar may not know when an automatic DS update is performed by the registry. Similarly, a Child DNS operator may not be aware when their CDS/CDNSKEY RRsets are out of sync across nameservers, causing them to be ignored.
 
 To help involved parties act appropriately and in a timely manner, entities performing automated DS maintenance should report on conditions they encounter. The following success situations may be of particular interest:
 
@@ -243,7 +243,7 @@ In addition, there are error conditions worthy of being reported:
 
   4. {:#reporting-4} No DS update is due, but it was determined that the Child zone is no longer compatible with the existing DS record set (e.g., DS RRset only references non-existing keys).
 
-For these reportworthy cases, the entity performing DS automation would be justified to attempt communicating the situation. Potential recipients are:
+In these latter two cases, the entity performing DS automation would be justified to attempt communicating the situation. Potential recipients are:
 
   - Child DNS operator, preferably by making a report query {{!RFC9567}} to the agent domain listed in the EDNS0 Report-Channel option of the DS update notification that triggered the DS update ({{!RFC9859, Section 4}}), or else via email to the address contained in the child zone's SOA RNAME field (see {{!RFC1035, Sections 3.3.13 and 8}});
 
@@ -440,7 +440,7 @@ For ease of review and referencing, the recommendations from this document are r
 
 2. For error conditions, the child DNS operator and the domain's technical contact (if applicable) SHOULD be notified first. The registrant SHOULD NOT be notified unless the problem persists for a prolonged amount of time (e.g., three days).
 
-3. Child DNS operators SHOULD be notified using a report query {{!RFC9567}} to the agent domain as described in {{Section 4 of !RFC9859}}. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
+3. Child DNS operators SHOULD be notified of errors using a report query {{!RFC9567}} to the agent domain as described in {{Section 4 of !RFC9859}}. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
 
 4. In the RRR model, registries performing DS automation SHOULD inform the registrar of any DS record changes via the EPP Change Poll Extension {{!RFC8590}} or a similar channel.
 
@@ -468,6 +468,8 @@ For ease of review and referencing, the recommendations from this document are r
 # Change History (to be removed before publication)
 
 * draft-ietf-dnsop-ds-automation-06
+
+> Editorial changes (IETF LC, Peter van Dijk)
 
 > Point out importance of retaining decision details for troubleshooting
   (IETF LC, Meir Goldman)
