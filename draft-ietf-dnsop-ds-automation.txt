@@ -5,8 +5,8 @@
 DNSOP Working Group                                             S. Sheng
 Internet-Draft                                                          
 Intended status: Best Current Practice                      P. Thomassen
-Expires: 18 October 2026                                           deSEC
-                                                           16 April 2026
+Expires: 11 November 2026                                          deSEC
+                                                             10 May 2026
 
 
 Operational Recommendations for DNSSEC Delegation Signer (DS) Automation
@@ -18,7 +18,7 @@ Abstract
    (DS) parameters from the Child DNS operator (via RFCs 7344, 8078,
    9615) requires the parental agent, often a registry or registrar, to
    make a number of technical decisions around acceptance checks, error
-   and sucess reporting, and multi-party issues such as concurrent
+   and success reporting, and multi-party issues such as concurrent
    updates.  This document describes recommendations about how these
    points are best addressed in practice.
 
@@ -48,7 +48,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 October 2026.
+   This Internet-Draft will expire on 11 November 2026.
 
 Copyright Notice
 
@@ -218,7 +218,7 @@ Table of Contents
 
    1.  Entities performing automated DS maintenance SHOULD verify:
 
-       a.  the unambigious intent of each DS update request as per
+       a.  the unambiguous intent of each DS update request as per
            [I-D.ietf-dnsop-cds-consistency], by checking its consistency
            both
 
@@ -502,6 +502,13 @@ Table of Contents
    be available.  However, due to the associated state requirements and
    the lack of direct operational impact, implementation of this is
    optional.
+
+   For troubleshooting, dispute resolution, and post-incident analysis,
+   it is instrumental for the Parental Agent to retain structured
+   records of DS automation decisions, including timestamp, triggering
+   CDS/CDNSKEY RRsets, notification channel, authoritative nameservers
+   consulted, verification results, decision outcome, and the applied DS
+   RRset or cancellation reason.
 
 6.  Registration Locks
 
@@ -843,12 +850,14 @@ Table of Contents
    The authors would like to thank the SSAC members who wrote the
    [SAC126] report on which this document is based.
 
-   In order of first contribution or review: Barbara Jantzen, Matt
+   Additional thanks are extended to the following individuals (in the
+   order of their first contribution or review): Barbara Jantzen, Matt
    Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies,
    Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg,
    Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan
    Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker,
-   Mohamed Boucadair (Area Director)
+   Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati,
+   Peter van Dijk, Donald Eastlake, Jiankang Yao
 
 12.  References
 
@@ -966,7 +975,7 @@ A.1.  Acceptance Checks and Safety Measures
 
    1.  Entities performing automated DS maintenance SHOULD verify:
 
-       a.  the unambigious intent of each DS update request as per
+       a.  the unambiguous intent of each DS update request as per
            [I-D.ietf-dnsop-cds-consistency], by checking its consistency
            both
 
@@ -1062,6 +1071,17 @@ A.4.  Multiple Submitting Parties
        side DS automation.
 
 Appendix B.  Change History (to be removed before publication)
+
+   *  draft-ietf-dnsop-ds-automation-06
+
+      Point out importance of retaining decision details for
+      troubleshooting (IETF LC, Meir Goldman)
+
+      Editorial changes (IETF LC, Thomas Fossati)
+
+   *  draft-ietf-dnsop-ds-automation-05
+
+      Editorial changes from AD Review
 
    *  draft-ietf-dnsop-ds-automation-04
 
