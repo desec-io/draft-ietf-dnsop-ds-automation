@@ -59,7 +59,7 @@ informative:
 
 --- abstract
 
-Enabling support for automatic acceptance of DNSSEC Delegation Signer (DS) parameters from the Child DNS operator (via RFCs 7344, 8078, 9615) requires the parental agent, often a registry or registrar, to make a number of technical decisions around acceptance checks, error and sucess reporting, and multi-party issues such as concurrent updates. This document describes recommendations about how these points are best addressed in practice.
+Enabling support for automatic acceptance of DNSSEC Delegation Signer (DS) parameters from the Child DNS operator (via RFCs 7344, 8078, 9615) requires the parental agent, often a registry or registrar, to make a number of technical decisions around acceptance checks, error and success reporting, and multi-party issues such as concurrent updates. This document describes recommendations about how these points are best addressed in practice.
 
 --- middle
 
@@ -129,7 +129,7 @@ This section provides recommendations to address the following operational quest
 1. Entities performing automated DS maintenance SHOULD verify:
 
     {:type="a"}
-    1. the unambigious intent of each DS update request as per {{!I-D.ietf-dnsop-cds-consistency}}, by checking its consistency both
+    1. the unambiguous intent of each DS update request as per {{!I-D.ietf-dnsop-cds-consistency}}, by checking its consistency both
 
         - between any published CDS and CDNSKEY records, and
         - across all authoritative nameservers in the delegation,
@@ -404,7 +404,7 @@ This document considers security aspects throughout, and has no separate conside
 
 The authors would like to thank the SSAC members who wrote the {{SAC126}} report on which this document is based.
 
-In order of first contribution or review: Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker, Mohamed Boucadair (Area Director)
+Additional thanks are extended to the following individuals (in the order of their first contribution or review): Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker, Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati, Peter van Dijk, Donald Eastlake, Jiankang Yao
 
 --- back
 
@@ -417,7 +417,7 @@ For ease of review and referencing, the recommendations from this document are r
 1. Entities performing automated DS maintenance SHOULD verify:
 
     {:type="a"}
-    1. the unambigious intent of each DS update request as per {{!I-D.ietf-dnsop-cds-consistency}}, by checking its consistency both
+    1. the unambiguous intent of each DS update request as per {{!I-D.ietf-dnsop-cds-consistency}}, by checking its consistency both
 
         - between any published CDS and CDNSKEY records, and
         - across all authoritative nameservers in the delegation,
@@ -464,6 +464,14 @@ For ease of review and referencing, the recommendations from this document are r
 
 
 # Change History (to be removed before publication)
+
+* draft-ietf-dnsop-ds-automation-06
+
+> Editorial changes (IETF LC, Thomas Fossati)
+
+* draft-ietf-dnsop-ds-automation-05
+
+> Editorial changes from AD Review
 
 * draft-ietf-dnsop-ds-automation-04
 
