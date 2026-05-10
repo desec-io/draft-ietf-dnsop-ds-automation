@@ -1293,6 +1293,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <p id="section-1-3">Not all existing DS automation deployments have made the same choices with respect to these questions, leading to somewhat inconsistent behavior. From the perspective of a domain holder with domain names under various TLDs, this may be unexpected and confusing.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">In the following sections, operational questions are first raised and answered with the corresponding recommendations. Each section is concluded with an analysis of its recommendations and related considerations. A combined view of the recommendations from all sections is given in <a href="#recommendations_overview" class="auto internal xref">Appendix A</a>.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <p id="section-1-5">Readers are expected to be familiar with DNSSEC <span>[<a href="#RFC9364" class="cite xref">RFC9364</a>]</span><span>[<a href="#RFC9615" class="cite xref">RFC9615</a>]</span><span>[<a href="#RFC9859" class="cite xref">RFC9859</a>]</span>.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">The core issues addressed in the document are derived from Section 4.4 of <span>[<a href="#SAC126" class="cite xref">SAC126</a>]</span>. Readers are referred to this report for additional background.<a href="#section-1-6" class="pilcrow">¶</a></p>
 <div id="requirements-notation">
 <section id="section-1.1">
         <h3 id="name-requirements-notation">
@@ -1826,7 +1827,7 @@ As a side effect, this works towards avoiding redundant automation at the regist
 <a href="#section-11" class="section-number selfRef">11. </a><a href="#name-acknowledgments" class="section-name selfRef">Acknowledgments</a>
       </h2>
 <p id="section-11-1">The authors would like to thank the SSAC members who wrote the <span>[<a href="#SAC126" class="cite xref">SAC126</a>]</span> report on which this document is based.<a href="#section-11-1" class="pilcrow">¶</a></p>
-<p id="section-11-2">Additional thanks are extended to the following individuals (in the order of their first contribution or review): Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker, Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati, Peter van Dijk, Donald Eastlake, Jiankang Yao<a href="#section-11-2" class="pilcrow">¶</a></p>
+<p id="section-11-2">Additional thanks are extended to the following individuals (in the order of their first contribution or review): Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker, Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati, Peter van Dijk, Jiankang Yao<a href="#section-11-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-combined-references">
@@ -2059,168 +2060,173 @@ and cancel the update if the verifications do not succeed.<a href="#appendix-A.1
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-2.1">
-          <p id="appendix-B-2.1.1">Editorial changes (IETF LC, Peter van Dijk)<a href="#appendix-B-2.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-2.1.1">Add historic background (IETF LC, Jiankang Yao)<a href="#appendix-B-2.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-3.1">
-          <p id="appendix-B-3.1.1">Point out importance of retaining decision details for troubleshooting
-  (IETF LC, Meir Goldman)<a href="#appendix-B-3.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-3.1.1">Editorial changes (IETF LC, Peter van Dijk)<a href="#appendix-B-3.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-4.1">
-          <p id="appendix-B-4.1.1">Editorial changes (IETF LC, Thomas Fossati)<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<ul class="normal">
-<li class="normal" id="appendix-B-5.1">
-          <p id="appendix-B-5.1.1">draft-ietf-dnsop-ds-automation-05<a href="#appendix-B-5.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-4.1.1">Point out importance of retaining decision details for troubleshooting
+  (IETF LC, Meir Goldman)<a href="#appendix-B-4.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-6.1">
-          <p id="appendix-B-6.1.1">Editorial changes from AD Review<a href="#appendix-B-6.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-5.1">
+          <p id="appendix-B-5.1.1">Editorial changes (IETF LC, Thomas Fossati)<a href="#appendix-B-5.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-7.1">
-          <p id="appendix-B-7.1.1">draft-ietf-dnsop-ds-automation-04<a href="#appendix-B-7.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-6.1">
+          <p id="appendix-B-6.1.1">draft-ietf-dnsop-ds-automation-05<a href="#appendix-B-6.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-8.1">
-          <p id="appendix-B-8.1.1">Editorial changes<a href="#appendix-B-8.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-7.1">
+          <p id="appendix-B-7.1.1">Editorial changes from AD Review<a href="#appendix-B-7.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-9.1">
-          <p id="appendix-B-9.1.1">draft-ietf-dnsop-ds-automation-03<a href="#appendix-B-9.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-8.1">
+          <p id="appendix-B-8.1.1">draft-ietf-dnsop-ds-automation-04<a href="#appendix-B-8.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-10.1">
-          <p id="appendix-B-10.1.1">Editorial changes<a href="#appendix-B-10.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-9.1">
+          <p id="appendix-B-9.1.1">Editorial changes<a href="#appendix-B-9.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-11.1">
-          <p id="appendix-B-11.1.1">draft-ietf-dnsop-ds-automation-02<a href="#appendix-B-11.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-10.1">
+          <p id="appendix-B-10.1.1">draft-ietf-dnsop-ds-automation-03<a href="#appendix-B-10.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-12.1">
-          <p id="appendix-B-12.1.1">Add Appendix with recommendations overview<a href="#appendix-B-12.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-11.1">
+          <p id="appendix-B-11.1.1">Editorial changes<a href="#appendix-B-11.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal">
+<li class="normal" id="appendix-B-12.1">
+          <p id="appendix-B-12.1.1">draft-ietf-dnsop-ds-automation-02<a href="#appendix-B-12.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-13.1">
-          <p id="appendix-B-13.1.1">Editorial changes<a href="#appendix-B-13.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-13.1.1">Add Appendix with recommendations overview<a href="#appendix-B-13.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-14.1">
-          <p id="appendix-B-14.1.1">Change type to BCP<a href="#appendix-B-14.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-14.1.1">Editorial changes<a href="#appendix-B-14.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-15.1">
-          <p id="appendix-B-15.1.1">Fold CDS/CDNSKEY consistency requirements (Section 6) into Section 2 (on acceptance checks)<a href="#appendix-B-15.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-15.1.1">Change type to BCP<a href="#appendix-B-15.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-16.1">
-          <p id="appendix-B-16.1.1">Clarify continuity of validation<a href="#appendix-B-16.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-16.1.1">Fold CDS/CDNSKEY consistency requirements (Section 6) into Section 2 (on acceptance checks)<a href="#appendix-B-16.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-17.1">
-          <p id="appendix-B-17.1.1">In RRR, clarify that registries should not bootstrap if registrar has no deactivation interface (or if registrar does the automation)<a href="#appendix-B-17.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-17.1.1">Clarify continuity of validation<a href="#appendix-B-17.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-18.1">
-          <p id="appendix-B-18.1.1">Remove Appendix C ("Approaches not pursued")<a href="#appendix-B-18.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<ul class="normal">
-<li class="normal" id="appendix-B-19.1">
-          <p id="appendix-B-19.1.1">draft-ietf-dnsop-ds-automation-01<a href="#appendix-B-19.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-18.1.1">In RRR, clarify that registries should not bootstrap if registrar has no deactivation interface (or if registrar does the automation)<a href="#appendix-B-18.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-20.1">
-          <p id="appendix-B-20.1.1">Remove Recommendation 6.1.2 which had told parents to require publication of both CDS and CDNSKEY<a href="#appendix-B-20.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-19.1">
+          <p id="appendix-B-19.1.1">Remove Appendix C ("Approaches not pursued")<a href="#appendix-B-19.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal">
+<li class="normal" id="appendix-B-20.1">
+          <p id="appendix-B-20.1.1">draft-ietf-dnsop-ds-automation-01<a href="#appendix-B-20.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-21.1">
-          <p id="appendix-B-21.1.1">Clarify Recommendation 5.1.3 (on suspension of automation after DS RRset removal) and provide extra analysis<a href="#appendix-B-21.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-21.1.1">Remove Recommendation 6.1.2 which had told parents to require publication of both CDS and CDNSKEY<a href="#appendix-B-21.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-22.1">
-          <p id="appendix-B-22.1.1">Providing access to DS update history is now optional<a href="#appendix-B-22.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-22.1.1">Clarify Recommendation 5.1.3 (on suspension of automation after DS RRset removal) and provide extra analysis<a href="#appendix-B-22.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-23.1">
-          <p id="appendix-B-23.1.1">Humans (domains holders) should be notified according to preferences established with registry/registrar (not necessarily via email)<a href="#appendix-B-23.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-23.1.1">Providing access to DS update history is now optional<a href="#appendix-B-23.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-24.1">
-          <p id="appendix-B-24.1.1">Remove redundant Recommendation 5.1.5 (same as 3.1.4)<a href="#appendix-B-24.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-24.1.1">Humans (domains holders) should be notified according to preferences established with registry/registrar (not necessarily via email)<a href="#appendix-B-24.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-25.1">
-          <p id="appendix-B-25.1.1">Editorial changes<a href="#appendix-B-25.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<ul class="normal">
-<li class="normal" id="appendix-B-26.1">
-          <p id="appendix-B-26.1.1">draft-ietf-dnsop-ds-automation-00<a href="#appendix-B-26.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-25.1.1">Remove redundant Recommendation 5.1.5 (same as 3.1.4)<a href="#appendix-B-25.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-27.1">
-          <p id="appendix-B-27.1.1">Rename after adoption<a href="#appendix-B-27.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-26.1">
+          <p id="appendix-B-26.1.1">Editorial changes<a href="#appendix-B-26.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-28.1">
-          <p id="appendix-B-28.1.1">draft-shetho-dnsop-ds-automation-02<a href="#appendix-B-28.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-27.1">
+          <p id="appendix-B-27.1.1">draft-ietf-dnsop-ds-automation-00<a href="#appendix-B-27.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-29.1">
-          <p id="appendix-B-29.1.1">Allow DS automation during registry update lock<a href="#appendix-B-29.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-28.1">
+          <p id="appendix-B-28.1.1">Rename after adoption<a href="#appendix-B-28.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal">
+<li class="normal" id="appendix-B-29.1">
+          <p id="appendix-B-29.1.1">draft-shetho-dnsop-ds-automation-02<a href="#appendix-B-29.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
 <li class="normal ulEmpty" id="appendix-B-30.1">
-          <p id="appendix-B-30.1.1">Editorial changes<a href="#appendix-B-30.1.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<ul class="normal">
-<li class="normal" id="appendix-B-31.1">
-          <p id="appendix-B-31.1.1">draft-shetho-dnsop-ds-automation-01<a href="#appendix-B-31.1.1" class="pilcrow">¶</a></p>
+          <p id="appendix-B-30.1.1">Allow DS automation during registry update lock<a href="#appendix-B-30.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-32.1">
-          <p id="appendix-B-32.1.1">Incorporated various review feedback (editorial + adding TODOs)<a href="#appendix-B-32.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-31.1">
+          <p id="appendix-B-31.1.1">Editorial changes<a href="#appendix-B-31.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal">
-<li class="normal" id="appendix-B-33.1">
-          <p id="appendix-B-33.1.1">draft-shetho-dnsop-ds-automation-00<a href="#appendix-B-33.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="appendix-B-32.1">
+          <p id="appendix-B-32.1.1">draft-shetho-dnsop-ds-automation-01<a href="#appendix-B-32.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <ul class="normal ulEmpty">
-<li class="normal ulEmpty" id="appendix-B-34.1">
-          <p id="appendix-B-34.1.1">Initial public draft.<a href="#appendix-B-34.1.1" class="pilcrow">¶</a></p>
+<li class="normal ulEmpty" id="appendix-B-33.1">
+          <p id="appendix-B-33.1.1">Incorporated various review feedback (editorial + adding TODOs)<a href="#appendix-B-33.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal">
+<li class="normal" id="appendix-B-34.1">
+          <p id="appendix-B-34.1.1">draft-shetho-dnsop-ds-automation-00<a href="#appendix-B-34.1.1" class="pilcrow">¶</a></p>
+</li>
+      </ul>
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="appendix-B-35.1">
+          <p id="appendix-B-35.1.1">Initial public draft.<a href="#appendix-B-35.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 </section>

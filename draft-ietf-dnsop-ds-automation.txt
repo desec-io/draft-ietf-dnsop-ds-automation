@@ -135,6 +135,10 @@ Table of Contents
    Readers are expected to be familiar with DNSSEC
    [RFC9364][RFC9615][RFC9859].
 
+   The core issues addressed in the document are derived from
+   Section 4.4 of [SAC126].  Readers are referred to this report for
+   additional background.
+
 1.1.  Requirements Notation
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -857,7 +861,7 @@ Table of Contents
    Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan
    Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker,
    Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati,
-   Peter van Dijk, Donald Eastlake, Jiankang Yao
+   Peter van Dijk, Jiankang Yao
 
 12.  References
 
@@ -1073,6 +1077,8 @@ A.4.  Multiple Submitting Parties
 Appendix B.  Change History (to be removed before publication)
 
    *  draft-ietf-dnsop-ds-automation-06
+
+      Add historic background (IETF LC, Jiankang Yao)
 
       Editorial changes (IETF LC, Peter van Dijk)
 
