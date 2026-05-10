@@ -261,6 +261,8 @@ Overly frequent reporting of the same condition to the same recipient is discour
 
 The registrant (or their designated party) should be able to retrieve the current DS configuration through the customer portal available for domain management. Ideally, the history of DS updates would also be available. However, due to the associated state requirements and the lack of direct operational impact, implementation of this is optional.
 
+For troubleshooting, dispute resolution, and post-incident analysis, it is instrumental for the Parental Agent to retain structured records of DS automation decisions, including timestamp, triggering CDS/CDNSKEY RRsets, notification channel, authoritative nameservers consulted, verification results, decision outcome, and the applied DS RRset or cancellation reason.
+
 
 # Registration Locks {#locks}
 
@@ -466,6 +468,9 @@ For ease of review and referencing, the recommendations from this document are r
 # Change History (to be removed before publication)
 
 * draft-ietf-dnsop-ds-automation-06
+
+> Point out importance of retaining decision details for troubleshooting
+  (IETF LC, Meir Goldman)
 
 > Editorial changes (IETF LC, Thomas Fossati)
 
