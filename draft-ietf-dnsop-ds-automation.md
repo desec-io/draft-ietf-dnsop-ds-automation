@@ -75,6 +75,8 @@ In the following sections, operational questions are first raised and answered w
 
 Readers are expected to be familiar with DNSSEC {{!RFC9364}}{{!RFC9615}}{{!RFC9859}}.
 
+The core issues addressed in the document are derived from Section 4.4 of {{SAC126}}. Readers are referred to this report for additional background.
+
 ## Requirements Notation
 
 {::boilerplate bcp14}
@@ -468,6 +470,8 @@ For ease of review and referencing, the recommendations from this document are r
 # Change History (to be removed before publication)
 
 * draft-ietf-dnsop-ds-automation-06
+
+> Add historic background (IETF LC, Jiankang Yao)
 
 > Editorial changes (IETF LC, Peter van Dijk)
 
