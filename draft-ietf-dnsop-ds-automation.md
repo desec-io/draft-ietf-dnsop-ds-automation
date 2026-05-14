@@ -30,12 +30,12 @@ normative:
     target: "https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xml#dns-sec-alg-numbers-1"
     title: DNS Security Algorithm Numbers
     author:
-      name: IANA
+      org: IANA
   DS-IANA:
     target: "http://www.iana.org/assignments/ds-rr-types"
     title: Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms
     author:
-      name: IANA
+      org: IANA
 
 informative:
   LowTTL:
@@ -53,7 +53,7 @@ informative:
     title: "SAC126: DNSSEC Delegation Signer (DS) Record Automation"
     author:
       -
-        name: ICANN Security and Stability Advisory Committee (SSAC)
+        org: ICANN Security and Stability Advisory Committee (SSAC)
     date: 2024-08-12
 
 
@@ -111,7 +111,7 @@ RRR Model:
 
 Deployments of DS automation SHOULD follow the recommendations set out in this document, both to achieve a more uniform treatment across suffixes — minimizing user surprise — and to prevent disruption of DNS and DNSSEC functionality. The recommendations are intended to provide baseline safety and uniformity of behavior across parents.
 
-Recommendations given in this document are optimized as to maximize interoperability and safety. In certain cases, local policy may take precedence, such as when a registry is subjected to national cryptographic policy requirements.
+Recommendations in this document optimize interoperability and safety. In certain cases, local policy may take precedence, such as when a registry is subjected to national cryptographic policy requirements.
 However, not following any requirements designated with the "SHOULD" key word will generally lead to undesirable effects of ambiguity and interoperability issues.
 When implementing these recommendations, operators have to carefully weigh whether any particular deviation is justified in their particular context.
 
@@ -188,9 +188,9 @@ As there exists no protocol for Child DNS operators to discover a Parent's input
 
 Publishing the same information in two different formats is not ideal. Still, it is much less complex and costly than burdening the Child DNS operator with discovering each Parent's current policy. Also, it is very easily automated. Operators should ensure that published RRsets are consistent with each other.
 
-If both RRsets are published, Parents are expected to verify consistency between them by verifying that they refer to the same set of keys {{!I-D.ietf-dnsop-cds-consistency}}. The CDS digest field need only be verified when the hash digest algorithm is designated as "MUST" in the "Implement for DNSSEC Delegation" column of the "Digest Algorithms" registry {{DS-IANA}}, and may otherwise be ignored when the digest type is unsupported.
+If both RRsets are published, Parents are expected to verify consistency between them by verifying that they refer to the same set of keys {{!I-D.ietf-dnsop-cds-consistency}}. By not second-guessing inconsistencies (such as by RRset recency) and instead rejecting them, responsibility to clearly express each update request is placed on the Child DNS operator.
 
-By rejecting the DS update if RRsets are found to be inconsistent, Child DNS operators are held responsible when publishing contradictory information. Note that this does not imply a restriction to the hash digest types found in the CDS RRset: if no inconsistencies are found, the parent can publish DS records with whatever digest type(s) it prefers.
+The CDS digest field need only be verified when the hash digest algorithm is designated as "MUST" in the "Implement for DNSSEC Delegation" column of the "Digest Algorithms" registry {{DS-IANA}}, and may otherwise be ignored when the digest type is unsupported. Note that this does not imply a restriction to the DS hash digest types: if no inconsistencies are found, the parent can publish DS records with whatever digest type(s) it prefers.
 
 
 # Reporting and Transparency {#reporting}
@@ -309,7 +309,7 @@ Following this line of thought, at the time of document writing some registries 
 
 In case of a domain not yet secured with DNSSEC, automatic DS initialization is not required to maintain ongoing operation; however, authenticated DNSSEC bootstrapping {{!RFC9615}} might be requested. Besides being in the interest of security, the fact that a Child is requesting DS initialization through an authenticated method expresses the registrant's intent to have the delegation secured.
 
-Further, some domains are equipped with an update lock by default. Not honoring DNSSEC bootstrapping requests then imposes an additional burden on the registrant, who has to unlock and relock the domain in order to facilitate DS provisioning after registration. This is a needless cost especially for large domain portfolios. It is also unexpected, as the registrant already has arranged for the necessary CDS/CDNSKEY records to be published. It therefore appears that DS initialization and rollovers should be treated the same way with respect to locks.
+Further, some domains are equipped with an update lock by default. Not honoring DNSSEC bootstrapping requests then imposes an additional burden on the registrant, who has to unlock and relock the domain in order to facilitate DS provisioning after registration. This is a needless cost especially for large domain portfolios. It is also unexpected, as the registrant already has arranged for the necessary CDS/CDNSKEY records to be published. DS initialization and rollovers therefore should be treated the same way with respect to locks.
 
 
 # Multiple Submitting Parties {#multiple}
@@ -329,7 +329,7 @@ This section provides recommendations to address the following operational quest
 
 4. Whenever a non-empty DS record set is provisioned, through whichever channel, DS automation SHOULD NOT (or no longer) be suspended (including after an earlier removal).
 
-5. In the RRR model, a registry SHOULD NOT automatically initialize DS records when it is known that the registrar does not provide a way for the domain holder to later disable DNSSEC. If the registrar has declared to be performing automated DS maintenance, the registry SHOULD publish the registrar's {{!RFC9859}} notification endpoint (if applicable) and refrain from registry-side DS automation.
+5. In the RRR model, a registry SHOULD NOT automatically initialize DS records when it is known that the registrar does not provide a way for the domain holder to later disable DNSSEC. If the registrar has declared that it performs automated DS maintenance, the registry SHOULD publish the registrar's {{!RFC9859}} notification endpoint (if applicable) and refrain from registry-side DS automation.
 
 ## Analysis {#analysis_multiple}
 
@@ -345,7 +345,7 @@ There are several considerations in this context, as discussed in the following 
 
 ### Necessity of Non-automatic Updates
 
-Under special circumstances, it may be necessary to perform a non-automatic DS update. One important example is when the key used by for authentication of DS updates is destroyed: in this case, an automatic key rollover is impossible as the Child DNS operator can no longer authenticate the associated information. Another example is when several providers are involved, but one no longer cooperates (e.g., when removing a provider from a multi-provider setup). Disabling manual DS management interfaces is therefore strongly discouraged.
+Under special circumstances, it may be necessary to perform a non-automatic DS update. One important example is when the key used for authentication of DS updates is destroyed: in this case, an automatic key rollover is impossible as the Child DNS operator can no longer authenticate the associated information. Another example is when several providers are involved, but one no longer cooperates (e.g., when removing a provider from a multi-provider setup). Disabling manual DS management interfaces is therefore strongly discouraged.
 
 Similarly, when the registrar is known to not support DNSSEC (or to lack a DS provisioning interface), it seems adequate for registries to not perform automated DS maintenance, in order to prevent situations in which a misconfigured delegation cannot be repaired by the registrant.
 
@@ -353,7 +353,7 @@ Similarly, when the registrar is known to not support DNSSEC (or to lack a DS pr
 
 When an out-of-band (e.g., manual) DS update is performed while CDS/CDNSKEY records referencing the previous DS RRset's keys are present, the delegation's DS records may be reset to their previous state at the next run of the automation process. This section discusses in which situations it is appropriate to suspend DS automation after such a non-automatic update.
 
-One option is to suspend DS automation after a manual DS update, but only until a resumption signal is observed. In the past, it was proposed that seeing an updated SOA serial in the child zone may serve as a resumption signal. However, as any arbitrary modification of zone contents — including the regular updating of DNSSEC signature validity timestamps — typically causes a change in SOA serial, resumption of DS automation after a serial change comes with a high risk of surprise. Additional issues arise if nameservers have different serial offsets (e.g., in a multi-provider setup). It is therefore advised to not follow this practice.
+One option is to suspend DS automation after a manual DS update, but only until a resumption signal is observed. In the past, it was proposed that seeing an updated SOA serial in the child zone may serve as a resumption signal. However, as any arbitrary modification of zone contents — including the regular updating of DNSSEC signature validity timestamps — typically causes a change in SOA serial, resumption of DS automation after a serial change comes with a high risk of surprise. Additional issues arise if nameservers have different serial offsets (e.g., in a multi-provider setup). This practice therefore is NOT RECOMMENDED.
 
 Note also that "automatic rollback" due to old CDS/CDNSKEY RRsets can only occur if they are signed with a key authorized by one of new DS records. Acceptance checks described in {{acceptance}} further ensure that updates do not break validation.
 
@@ -406,9 +406,9 @@ This document considers security aspects throughout, and has no separate conside
 
 # Acknowledgments
 
-The authors would like to thank the SSAC members who wrote the {{SAC126}} report on which this document is based.
+The authors would like to thank the members of ICANN's Security and Stability Advisory Committee (SSAC) who wrote the {{SAC126}} report on which this document is based.
 
-Additional thanks are extended to the following individuals (in the order of their first contribution or review): Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker, Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati, Peter van Dijk, Jiankang Yao
+Additional thanks are extended to the following individuals (in the order of their first contribution or review): Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker, Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati, Peter van Dijk, Jiankang Yao, Donald Eastlake
 
 --- back
 
@@ -464,10 +464,14 @@ For ease of review and referencing, the recommendations from this document are r
 
 4. Whenever a non-empty DS record set is provisioned, through whichever channel, DS automation SHOULD NOT (or no longer) be suspended (including after an earlier removal).
 
-5. In the RRR model, a registry SHOULD NOT automatically initialize DS records when it is known that the registrar does not provide a way for the domain holder to later disable DNSSEC. If the registrar has declared to be performing automated DS maintenance, the registry SHOULD publish the registrar's {{!RFC9859}} notification endpoint (if applicable) and refrain from registry-side DS automation.
+5. In the RRR model, a registry SHOULD NOT automatically initialize DS records when it is known that the registrar does not provide a way for the domain holder to later disable DNSSEC. If the registrar has declared that it performs automated DS maintenance, the registry SHOULD publish the registrar's {{!RFC9859}} notification endpoint (if applicable) and refrain from registry-side DS automation.
 
 
 # Change History (to be removed before publication)
+
+* draft-ietf-dnsop-ds-automation-07
+
+* Editorial changes (IETF LC, Donald Eastlake)
 
 * draft-ietf-dnsop-ds-automation-06
 
