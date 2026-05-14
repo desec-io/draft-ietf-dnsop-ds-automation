@@ -316,7 +316,7 @@ Table of Contents
    up.  Note also that nothing is gained from first lowering the TTL of
    the old DS RRset: such an additional step would, in fact, require
    another wait period while resolver caches adjust.  For the sake of
-   completeless, there likewise is no point to increasing any DS TTL
+   completeness, there likewise is no point to increasing any DS TTL
    values beyond their normal value.
 
 4.2.3.  CDS vs. CDNSKEY
@@ -859,7 +859,7 @@ Table of Contents
    Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan
    Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker,
    Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati,
-   Peter van Dijk, Jiankang Yao, Donald Eastlake
+   Peter van Dijk, Jiankang Yao, Donald Eastlake, James Gannon
 
 12.  References
 
@@ -1075,6 +1075,8 @@ A.4.  Multiple Submitting Parties
 Appendix B.  Change History (to be removed before publication)
 
    *  draft-ietf-dnsop-ds-automation-07
+
+   *  Editorial changes (Telechat review, James Gannon)
 
    *  Editorial changes (IETF LC, Donald Eastlake)
 
