@@ -170,7 +170,7 @@ Registries therefore should significantly lower the DS RRset's TTL for some time
 
 The reduction should be in effect at least for a couple of days and until the previous DS record set has expired from caches, that is, the period during which the low-TTL is applied typically will significantly exceed the normal TTL value. When using the Extensible Provisioning Protocol (EPP) {{?RFC5730}}, the domain `<info>` command described in {{Section 2.1.1.2 of ?RFC9803}} is available for advertising the server's TTL policy.
 
-While this approach enables quick rollbacks, timing of the desired DS update process itself is largely governed by the previous DS RRset's TTL, and therefore does not generally benefit from an overall speed-up. Note also that nothing is gained from first lowering the TTL of the old DS RRset: such an additional step would, in fact, require another wait period while resolver caches adjust. For the sake of completeless, there likewise is no point to increasing any DS TTL values beyond their normal value.
+While this approach enables quick rollbacks, timing of the desired DS update process itself is largely governed by the previous DS RRset's TTL, and therefore does not generally benefit from an overall speed-up. Note also that nothing is gained from first lowering the TTL of the old DS RRset: such an additional step would, in fact, require another wait period while resolver caches adjust. For the sake of completeness, there likewise is no point to increasing any DS TTL values beyond their normal value.
 
 ### CDS vs. CDNSKEY
 
@@ -408,7 +408,7 @@ This document considers security aspects throughout, and has no separate conside
 
 The authors would like to thank the members of ICANN's Security and Stability Advisory Committee (SSAC) who wrote the {{SAC126}} report on which this document is based.
 
-Additional thanks are extended to the following individuals (in the order of their first contribution or review): Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker, Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati, Peter van Dijk, Jiankang Yao, Donald Eastlake
+Additional thanks are extended to the following individuals (in the order of their first contribution or review): Barbara Jantzen, Matt Pounsett, Matthijs Mekking, Ondřej Caletka, Oli Schacher, Kim Davies, Jim Reid, Q Misell, Scott Hollenbeck, Tamás Csillag, Philip Homburg, Shumon Huque (Document Shepherd), Libor Peltan, Josh Simpson, Johan Stenstam, Stefan Ubbink, Viktor Dukhovni, Hugo Salgado, Wes Hardaker, Mohamed Boucadair (Area Director), Meir Goldman, Thomas Fossati, Peter van Dijk, Jiankang Yao, Donald Eastlake, James Gannon
 
 --- back
 
@@ -470,6 +470,8 @@ For ease of review and referencing, the recommendations from this document are r
 # Change History (to be removed before publication)
 
 * draft-ietf-dnsop-ds-automation-07
+
+* Editorial changes (Telechat review, James Gannon)
 
 * Editorial changes (IETF LC, Donald Eastlake)
 
