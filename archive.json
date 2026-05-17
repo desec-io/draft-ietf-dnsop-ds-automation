@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-05-12T03:34:28.964212+00:00",
+  "timestamp": "2026-05-17T03:45:53.632042+00:00",
   "repo": "desec-io/draft-ietf-dnsop-ds-automation",
   "labels": [
     {
@@ -154,16 +154,24 @@
       "id": "I_kwDONCQOHM8AAAABB2uRtw",
       "title": "secdir review",
       "url": "https://github.com/desec-io/draft-ietf-dnsop-ds-automation/issues/10",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "boucadair",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "https://mailarchive.ietf.org/arch/msg/last-call/THcyJ34s_7byrXqhdWF6GpE3Jdc/",
       "createdAt": "2026-05-11T09:00:54Z",
-      "updatedAt": "2026-05-11T09:00:54Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2026-05-14T10:49:53Z",
+      "closedAt": "2026-05-14T10:49:52Z",
+      "comments": [
+        {
+          "author": "peterthomassen",
+          "authorAssociation": "MEMBER",
+          "body": "Addressed via 0b89e97dde78126190453d833f8378c52f34f430",
+          "createdAt": "2026-05-14T10:49:52Z",
+          "updatedAt": "2026-05-14T10:49:52Z"
+        }
+      ]
     }
   ],
   "pulls": [
