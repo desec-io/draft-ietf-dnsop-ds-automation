@@ -190,7 +190,9 @@ Publishing the same information in two different formats is not ideal. Still, it
 
 If both RRsets are published, Parents are expected to verify consistency between them by verifying that they refer to the same set of keys {{!I-D.ietf-dnsop-cds-consistency}}. By not second-guessing inconsistencies (such as by RRset recency) and instead rejecting them, responsibility to clearly express each update request is placed on the Child DNS operator.
 
-The CDS digest field need only be verified when the hash digest algorithm is designated as "MUST" in the "Implement for DNSSEC Delegation" column of the "Digest Algorithms" registry {{DS-IANA}}, and may otherwise be ignored when the digest type is unsupported. Note that this does not imply a restriction to the DS hash digest types: if no inconsistencies are found, the parent can publish DS records with whatever digest type(s) it prefers.
+CDS records need only be considered for CDNSKEY consistency when their digest type field is designated as "MUST" in the "Implement for DNSSEC Delegation" column of the "Digest Algorithms" registry {{DS-IANA}}.
+Consistency of records with other digest types need not be verified, especially when the digest type is unsupported; such records can be ignored.
+Note that this does not imply a restriction on the DS hash digest types: if no inconsistencies are found, the parent can publish DS records with whatever digest type(s) it prefers.
 
 
 # Reporting and Transparency {#reporting}
@@ -201,11 +203,11 @@ This section provides recommendations to address the following operational quest
 
 ## Recommendations
 
-1. For certain DS updates (see {{analysis_reporting (analysis)}}) and for DS deactivation, relevant points of contact known to the zone operator SHOULD be notified.
+1. For certain DS updates (see {{analysis_reporting (analysis)}}) and for DS deactivation, relevant points of contact known to the parent-side entity (registry or registrar) SHOULD be notified.
 
 2. For error conditions, the child DNS operator and the domain's technical contact (if applicable) SHOULD be notified first. The registrant SHOULD NOT be notified unless the problem persists for a prolonged amount of time (e.g., three days).
 
-3. Child DNS operators SHOULD be notified of errors using a report query {{!RFC9567}} to the agent domain as described in {{Section 4 of !RFC9859}}. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
+3. Child DNS operators SHOULD be notified of errors using a report query {{!RFC9567}} to the agent domain as described in {{Section 4 of !RFC9859}}. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity. The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
 
 4. In the RRR model, registries performing DS automation SHOULD inform the registrar of any DS record changes via the EPP Change Poll Extension {{!RFC8590}} or a similar channel.
 
@@ -438,11 +440,11 @@ For ease of review and referencing, the recommendations from this document are r
 
 ## Reporting and Transparency
 
-1. For certain DS updates (see {{analysis_reporting (analysis)}}) and for DS deactivation, relevant points of contact known to the zone operator SHOULD be notified.
+1. For certain DS updates (see {{analysis_reporting (analysis)}}) and for DS deactivation, relevant points of contact known to the parent-side entity (registry or registrar) SHOULD be notified.
 
 2. For error conditions, the child DNS operator and the domain's technical contact (if applicable) SHOULD be notified first. The registrant SHOULD NOT be notified unless the problem persists for a prolonged amount of time (e.g., three days).
 
-3. Child DNS operators SHOULD be notified of errors using a report query {{!RFC9567}} to the agent domain as described in {{Section 4 of !RFC9859}}. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity (registry or registrar). The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
+3. Child DNS operators SHOULD be notified of errors using a report query {{!RFC9567}} to the agent domain as described in {{Section 4 of !RFC9859}}. Notifications to humans (domain holder) will be performed in accordance with the communication preferences established with the parent-side entity. The same condition SHOULD NOT be reported unnecessarily frequently to the same recipient.
 
 4. In the RRR model, registries performing DS automation SHOULD inform the registrar of any DS record changes via the EPP Change Poll Extension {{!RFC8590}} or a similar channel.
 
@@ -470,6 +472,8 @@ For ease of review and referencing, the recommendations from this document are r
 # Change History (to be removed before publication)
 
 * draft-ietf-dnsop-ds-automation-07
+
+* Editorial changes from proofreading
 
 * Editorial changes (Telechat review, James Gannon)
 
